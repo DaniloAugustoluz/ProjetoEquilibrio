@@ -9,7 +9,9 @@ public partial class PesquisaAcao : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        LabelPesquisador.Text = Session["nome_usuario"].ToString ();
+
+        LabelPesquisador.Text = Session["nome_usuario"].ToString();
+        
 
     }
     protected void ImageButtonPesquisa_Click(object sender, ImageClickEventArgs e)
@@ -18,11 +20,12 @@ public partial class PesquisaAcao : System.Web.UI.Page
         {
             if (RadioButtonListDemanda.SelectedValue.ToString() == "0") // demandante 
             {
+
             }
-            ObjectServicos.SelectParameters[0].DefaultValue = LabelPesquisador.Text.Trim();
+            ObjectServicos.SelectParameters[0].DefaultValue = Session["nome_usuario"].ToString().Trim();
             ObjectServicos.SelectParameters[1].DefaultValue = RadioButtonListDemanda.SelectedValue.ToString();
-            ObjectServicos.DataBind ();
-            GridViewHistorico .DataBind ();
+            ObjectServicos.DataBind();
+            GridViewHistorico.DataBind();
         }
         catch (Exception ex)
         {

@@ -9,11 +9,11 @@ public partial class Acesso : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        
     }
     protected void btnNovo_Click(object sender, EventArgs e)
     {
-        Session["opcaoacesso"] = "n";  // novo
+        Session["opcaoacesso"] = "c";  // novo
         btnConfirma.Visible = true;
         Panel1.Visible = true;
         
@@ -26,14 +26,14 @@ public partial class Acesso : System.Web.UI.Page
             {
                 // fazer a consistencia do usuario e senha que estão acessando.
                 EquilibrioClasse _objUsuario = new EquilibrioClasse();
-                if (_objUsuario.ValidaUsuario(txtemail.Text ,txtsenha.Text ))
+                if (_objUsuario.ValidaUsuario(txtemail.Text, txtsenha.Text) == true)
                 {
-
-                    Session["nome_usuario"] = _objUsuario.ObterNome(txtemail.Text); 
+                    Session["nome_usuario"] = _objUsuario.ObterNome(txtemail.Text);
                     Response.Redirect("Pesquisaacao.aspx");
                 }
-                else if(_objUsuario.validaPreCad(txtemail.Text, txtsenha.Text)){
-                    Session["nome_precad"] = _objUsuario.ObterNome(txtemail.Text);
+                else if(_objUsuario.ValidaPreCad(txtemail.Text, txtsenha.Text) == true)
+                {
+                    Session["nome_usuario"] = _objUsuario.ObterNome(txtemail.Text);
                     Response.Redirect("Pesquisaacao.aspx");
                 }
                 else
@@ -55,7 +55,7 @@ public partial class Acesso : System.Web.UI.Page
     protected void ImageButtonNovoCadastro_Click(object sender, ImageClickEventArgs e)
     {
         Session["opcaoacesso"] = "n";  // cliente
-        btnConfirma.Visible = false;
+        //btnConfirma.Visible = false;
         Panel1.Visible = false;
         Response.Redirect("cadastroinicial.aspx");
     }

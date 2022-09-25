@@ -20,17 +20,8 @@ public class EquilibrioClasse
 		//
 	}
 
-    public bool ValidaPreCad(string email, string senha) {
-        MySqlConnection _conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["Mediacao"].ToString());
-        StringBuilder _strbuilder = new StringBuilder();
-
-
-
-
-
-        return true;
-    }
-    public bool ValidaUsuario(string usuario, string senha)
+    
+    public bool ValidaUsuario(string email, string senha)
     {
         try
         {
@@ -39,8 +30,8 @@ public class EquilibrioClasse
              StringBuilder _comando = new StringBuilder();
 
              _comando.Append(" CALL PRC_VALIDA_USUARIO (");
-              _comando.Append("'" + usuario.Trim() + "',");
-             _comando.Append ("'"+senha.ToString()+"');");
+              _comando.Append("'" + email.Trim() + "',");
+             _comando.Append ("'"+senha.ToString()+" ');");
 
             MySqlCommand _commsql = new MySqlCommand();
             // abre conexao
@@ -66,19 +57,32 @@ public class EquilibrioClasse
         }
        }
 
-    public bool validaPreCad(string email, string senha) {
+
+    public bool ValidaPreCad(string email, string senha) {
         try
         {
 
-            bool retornaUsuario = false;
+            
             MySqlConnection _conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["Mediacao"].ToString());
             StringBuilder _builder = new StringBuilder();
 
-            _builder.Append("");
-            _builder.Append("");
+            _builder.Append(" CALL PRC_VALIDA_PRECAD( ");
+            _builder.Append("'" + email.Trim() + "',");
+            _builder.Append("'" + senha.ToString() + " ');");
 
+            //Abre conexão
+            MySqlCommand _comando = new MySqlCommand();
+            _conn.Open();
+            _comando.Connection = _conn;
+            _comando.CommandText = _builder.ToString();
+            int retorno = 0;
+            retorno = Convert.ToInt16(_comando.ExecuteScalar().ToString());
 
-            return retornaUsuario;
+            //fechando conexão
+            _conn.Close();
+            _conn.Dispose();
+            _comando.Dispose();
+            return retorno == 0 ? false : true;
 
         }
         catch (Exception ex) {
@@ -722,6 +726,38 @@ public class EquilibrioClasse
             _adapter.Dispose();
         }
     }
+
+    public DataTable ObterPreCad(string email) {
+        DataTable _retornoTabela = new DataTable();
+        
+        MySqlConnection _conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["Mediacao"].ToString());
+        string s_Comando = "SELECT NOME, EMAIL,  DESCRICAO AS  'ORIGEM DO CLIENTE'  FROM TB_USUARIO;";
+
+        MySqlDataAdapter _adapter = new MySqlDataAdapter(s_Comando, _conn);
+        try
+        {
+            _adapter.Fill(_retornoTabela);
+            return _retornoTabela;
+
+        }
+        
+        catch (Exception ex)
+        {
+            
+            throw ex;
+        
+        }
+        
+        finally { 
+            //Fechar conexão
+            _conn.Close();
+            _conn.Dispose();
+            _adapter.Dispose();
+        }
+        
+    }
+
+
 
     public DataTable ObterHistorico()
     {

@@ -8,15 +8,19 @@
         .style2
         {
         }
+        .style3
+        {
+            height: 21px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <table style="width:100%;">
         <tr>
-            <td class="style2">
+            <td class="style3">
                 Pesquisador</td>
-            <td colspan="2">
-                <asp:Label ID="LabelPesquisador" runat="server" Text="Label" Width="100%"></asp:Label>
+            <td colspan="2" class="style3">
+                <asp:Label ID="LabelPesquisador" runat="server" Text="Label"></asp:Label>
             </td>
         </tr>
         <tr>
