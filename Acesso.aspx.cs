@@ -29,12 +29,12 @@ public partial class Acesso : System.Web.UI.Page
                 if (_objUsuario.ValidaUsuario(txtemail.Text, txtsenha.Text) == true)
                 {
                     Session["nome_usuario"] = _objUsuario.ObterNome(txtemail.Text);
-                    Response.Redirect("Pesquisaacao.aspx");
+                    Response.Redirect("PesquisaAcao.aspx");
                 }
                 else if(_objUsuario.ValidaPreCad(txtemail.Text, txtsenha.Text) == true)
                 {
                     Session["nome_usuario"] = _objUsuario.ObterNome(txtemail.Text);
-                    Response.Redirect("Pesquisaacao.aspx");
+                    Response.Redirect("MenuEquilibrio.aspx");
                 }
                 else
                 {
