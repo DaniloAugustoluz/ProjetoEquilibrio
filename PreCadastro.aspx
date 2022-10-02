@@ -209,6 +209,7 @@
                     CssClass="submitButton" Height="24px" TextMode="Password"></asp:TextBox>
             </td>
             <td class="style92">
+                <asp:TextBox ID="TextBoxAcaoPrecad" runat="server" Visible="False">I</asp:TextBox>
                 </td>
         </tr>
         <tr>

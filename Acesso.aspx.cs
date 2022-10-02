@@ -9,8 +9,10 @@ public partial class Acesso : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        
+              
+
     }
+
     protected void btnNovo_Click(object sender, EventArgs e)
     {
         Session["opcaoacesso"] = "c";  // novo
@@ -26,21 +28,22 @@ public partial class Acesso : System.Web.UI.Page
             {
                 // fazer a consistencia do usuario e senha que estão acessando.
                 EquilibrioClasse _objUsuario = new EquilibrioClasse();
-                if (_objUsuario.ValidaUsuario(txtemail.Text, txtsenha.Text) == true)
+                if(_objUsuario.ValidaPreCad(txtemail.Text.Trim(), txtsenha.Text.Trim()) == true)
+                {
+                    //Cadastro do site para mediador, conciliador ou arbitro
+                    Session["nome_usuario"] = _objUsuario.ObterNome(txtemail.Text);
+                    Response.Redirect("MenuEquilibrio.aspx");
+                }
+                else if (_objUsuario.ValidaUsuario(txtemail.Text.Trim(), txtsenha.Text.Trim()) == true)
                 {
                     Session["nome_usuario"] = _objUsuario.ObterNome(txtemail.Text);
                     Response.Redirect("PesquisaAcao.aspx");
-                }
-                else if(_objUsuario.ValidaPreCad(txtemail.Text, txtsenha.Text) == true)
-                {
-                    Session["nome_usuario"] = _objUsuario.ObterNome(txtemail.Text);
-                    Response.Redirect("MenuEquilibrio.aspx");
                 }
                 else
                 {
                     Response.Write("<script type=text/javascript>alert('Verifique senha e usuario, por favor ') </script>");
                 }
-            }
+            }           
         }
         catch (Exception ex)
         {
@@ -57,7 +60,7 @@ public partial class Acesso : System.Web.UI.Page
         Session["opcaoacesso"] = "n";  // cliente
         //btnConfirma.Visible = false;
         Panel1.Visible = false;
-        Response.Redirect("cadastroinicial.aspx");
+        Response.Redirect("AdicionaCV.aspx");
     }
     protected void ImageButton1Cliente_Click(object sender, ImageClickEventArgs e)
     {

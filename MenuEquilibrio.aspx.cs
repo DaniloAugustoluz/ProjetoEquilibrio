@@ -5,17 +5,33 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class MenuEquilibrio : System.Web.UI.Page
+
+public partial class MenuEquilibrio :  System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        flag verificacao = new flag();
+        string verifica = verificacao.retornaflagAcao();
+        if (verifica == "A")
+        {
+        }
+        else {
+            Response.Write("<script type/textjavascript>alert('POR FAVOR ACESSE A PÁGINA DE ARQUIVOS, PARA ANEXAR SEUS DOCUMENTOS.')</script>");
+        }
     }
- 
+
+    public int salvarFlag() {
+        flag classe = new flag();
+        int flag = classe.Mflag;
+
+        return flag;
+    }
+
+
     protected void ImageButtonSAIR_Click(object sender, ImageClickEventArgs e)
     {
         Session["Controle"] = 0;
-        Response.Redirect("http://volitsistemas.com.br/portalvolit");
+        Response.Redirect("Acesso.aspx");
     }
 
     protected void ImageButtonColaborador_Click(object sender, ImageClickEventArgs e)
@@ -61,6 +77,15 @@ public partial class MenuEquilibrio : System.Web.UI.Page
     }
     protected void ImageButtonAponta_Click(object sender, ImageClickEventArgs e)
     {
+        //QUERY - STRING
         Response.Redirect("AgendaDiaria.aspx?Media=1");
+    }
+    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+    {
+        if (salvarFlag() == 1)
+        {
+            Session["verificacao"] = salvarFlag();
+        }
+        Response.Redirect("AdicionaCV.aspx");
     }
 }

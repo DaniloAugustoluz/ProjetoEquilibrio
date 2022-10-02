@@ -31,7 +31,7 @@ public class EquilibrioClasse
 
              _comando.Append(" CALL PRC_VALIDA_USUARIO (");
               _comando.Append("'" + email.Trim() + "',");
-             _comando.Append ("'"+senha.ToString()+" ');");
+             _comando.Append ("'"+senha.Trim().ToString()+"');");
 
             MySqlCommand _commsql = new MySqlCommand();
             // abre conexao
@@ -66,9 +66,9 @@ public class EquilibrioClasse
             MySqlConnection _conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["Mediacao"].ToString());
             StringBuilder _builder = new StringBuilder();
 
-            _builder.Append(" CALL PRC_VALIDA_PRECAD( ");
+            _builder.Append(" CALL PRC_VALIDA_PRECAD(");
             _builder.Append("'" + email.Trim() + "',");
-            _builder.Append("'" + senha.ToString() + " ');");
+            _builder.Append("'" + senha.Trim().ToString() + "');");
 
             //Abre conexão
             MySqlCommand _comando = new MySqlCommand();

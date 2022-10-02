@@ -91,6 +91,7 @@
             <td class="style4">
                 </td>
             <td class="style5">
+                <asp:TextBox ID="TextBoxAcaoCV" runat="server" Visible="False">I</asp:TextBox>
                 </td>
         </tr>
         <tr>
@@ -102,15 +103,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </td>
             <td class="style1">
-                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                    <ContentTemplate>
-                        <asp:Image ID="Image1" runat="server" Height="80px" Visible="False" 
-                            Width="80px" />
-                        <asp:ScriptManager ID="ScriptManagerFoto" runat="server">
-                        </asp:ScriptManager>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-            </td>
+                &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
@@ -119,9 +112,15 @@
                 &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Button ID="ButtonSalvarFiles" runat="server" Height="42px" 
                     onclick="ButtonSalvarFiles_Click" Text="OK" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:CheckBox ID="CheckBoxVerificaCV" runat="server" 
+                    Visible="False" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
                 <asp:ImageButton ID="ImageButtonOk" runat="server" Height="42px" 
                     ImageUrl="~/Novo_Layout/ok.png" onclick="ImageButtonOk_Click" Width="40px" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:ImageButton ID="ImageButtonVoltar" runat="server" Height="42px" 
+                    ImageUrl="~/Novo_Layout/esquerda.png" onclick="ImageButtonVoltar_Click" 
+                    Width="40px" />
             </td>
             <td class="style7">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

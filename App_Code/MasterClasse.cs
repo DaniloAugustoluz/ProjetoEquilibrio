@@ -27,14 +27,14 @@ public class MasterClasse
             StringBuilder _comando = new StringBuilder();
             _conn.Open();
              
-            _comando.Append("CALL  PRC_INSERT_CAD ( ");
-            _comando.Append(" ' " + P_NOME.Trim() + " ', ");
-            _comando.Append(" ' " + P_CPF.Trim().ToString() + " ', ");
-            _comando.Append(" ' " + P_EMAIL.Trim().ToString() + " ', ");
-            _comando.Append(" ' " + P_SENHA.Trim().ToString() + " ', ");
-            _comando.Append(" ' " + P_MEDIADOR.ToString() + " ' ,");
-            _comando.Append(" ' " + P_ARBITRO.ToString() + " ', ");
-            _comando.Append(" ' " + P_CONCILIADOR.ToString() + " ' );");
+            _comando.Append(" CALL  PRC_INSERT_CAD (");
+            _comando.Append("'" + P_NOME.Trim() + "',");
+            _comando.Append("'" + P_CPF.Trim().ToString() + "',");
+            _comando.Append("'" + P_EMAIL.Trim().ToString() + "',");
+            _comando.Append("'" + P_SENHA.Trim().ToString() + "',");
+            _comando.Append("'" + P_MEDIADOR.ToString() + "',");
+            _comando.Append("'" + P_ARBITRO.ToString() + "',");
+            _comando.Append("'" + P_CONCILIADOR.ToString() + "');");
 
 
             MySqlCommand _comm = new MySqlCommand();
@@ -52,8 +52,5 @@ public class MasterClasse
     
         throw ex;
     }
-    
-    
-    
-    }
+   }
 }
