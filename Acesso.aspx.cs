@@ -24,6 +24,7 @@ public partial class Acesso : System.Web.UI.Page
     {
         try
         {
+            Session["emailacesso"] = txtemail.Text;
             if (Session["opcaoacesso"] == "c")
             {
                 // fazer a consistencia do usuario e senha que estão acessando.
@@ -72,5 +73,10 @@ public partial class Acesso : System.Web.UI.Page
     protected void btnSair_Click(object sender, ImageClickEventArgs e)
     {
         Response.Redirect("Acesso.aspx");
+    }
+
+    protected void ImageButtonSolicitarServico_Click(object sender, ImageClickEventArgs e)
+    {
+        Response.Redirect("PreCadastro.aspx");
     }
 }

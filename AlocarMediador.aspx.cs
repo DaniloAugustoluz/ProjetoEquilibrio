@@ -11,7 +11,13 @@ public partial class AlocarMediador : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (DropDownListOrigem.SelectedValue == "<< Selecione >>")
+        {
+            ImageButtonVoltar.Visible = true;
+        }
+        else {
+            ImageButtonVoltar.Visible = false;
+        }
     }
 
     protected void ImageButtonSair_Click(object sender, ImageClickEventArgs e)
@@ -225,6 +231,7 @@ public partial class AlocarMediador : System.Web.UI.Page
             throw ex;
         }
     }
+
     protected void ImageButtonPesquisa_Click(object sender, ImageClickEventArgs e)
     {
         if (TextBoxDemandado.Text.Trim().Length > 0)
@@ -264,5 +271,9 @@ public partial class AlocarMediador : System.Web.UI.Page
             EnviarEmail();
         }
         
+    }
+    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+    {
+            Response.Redirect("MenuEquilibrio.aspx");
     }
 }

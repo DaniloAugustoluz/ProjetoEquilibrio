@@ -153,6 +153,7 @@
                      <td class="style2" colspan="2">
                          <asp:TextBox ID="TextBoxDemandado" runat="server" Enabled="False" Height="18px" 
                              MaxLength="100" Width="75%"></asp:TextBox>   
+                         &nbsp;   
                          <asp:ImageButton ID="ImageButtonPesquisa" runat="server" Height="25px" 
                              ImageUrl="~/Novo_Layout/busca.png" Width="31px" 
                              onclick="ImageButtonPesquisa_Click" />
@@ -197,6 +198,10 @@
                         <asp:Parameter DefaultValue="&quot;SEM USO&quot;" Name="uso" Type="String" />
                     </SelectParameters>
                 </asp:ObjectDataSource>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:ImageButton ID="ImageButtonVoltar" runat="server" Height="40px" 
+                    ImageUrl="~/Novo_Layout/esquerda.png" onclick="ImageButton1_Click" 
+                    ToolTip="Retornar para o MENU" Visible="False" Width="40px" />
             </td>
             <td style="text-align: center">
                 <asp:ImageButton ID="ImageButtonEditar" runat="server" Height="40px" 

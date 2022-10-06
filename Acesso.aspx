@@ -20,10 +20,6 @@
         {
             height: 21px;
         }
-        .style5
-        {
-            height: 130px;
-        }
         .style6
         {
             height: 26px;
@@ -37,6 +33,15 @@
             height: 21px;
             width: 458px;
         }
+        .style11
+        {
+            height: 21px;
+            width: 580px;
+        }
+        .style12
+        {
+            height: 130px;
+        }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
@@ -45,40 +50,47 @@
             <td class="style2" colspan="3">
                 <table style="width:100%;">
                     <tr>
-                     <td class="style4" colspan="2">
-                            <asp:Label ID="LabelAcesso" runat="server" Font-Bold="True" ForeColor="Black"  Font-Size="Large" 
-                                
-                                Text="A MEDIAÇÃO É UMA FORMA HUMANIZADA DE RESOLVER CONFLITOS, ONDE AS PARTES TOMAM A DECISÃO CONFORME SEUS PRINCÍPIOS E CRENÇAS; MELHORANDO SUAS RELAÇÕES PESSOAIS E COM O MUNDO." 
-                                Font-Italic="True" Font-Names="Corbel Light"></asp:Label>
-                        </td>
+                     <td class="style11">
+                            &nbsp;</td>
                         
-                    </tr>
-                    <tr>
-                     <td class="style4" colspan="2">
+                     <td class="style4">
                             &nbsp;</td>
                         
                     </tr>
                     <tr>
-                     <td class="style10">
-                        <asp:Image ID="Image1" runat="server" ImageAlign="Left" Width="600px"  Heght="400px" ImageUrl="~/Novo_Layout/Cabecalho_equilibrio.png" />
-                        </td>
+                     <td class="style11">
+                            &nbsp;</td>
                         
                      <td class="style4">
-                            <asp:Image ID="Image2" runat="server" Height="80px" 
-                                ImageUrl="~/Novo_Layout/mgpa_nh4w_220719 (1).png" Width="130px" />
+                            &nbsp;</td>
+                        
+                    </tr>
+                    <tr>
+                     <td class="style11" align="center">
+                        <asp:Image ID="Image1" runat="server" ImageAlign="Middle" Width="544px"  
+                             Heght="400px" ImageUrl="~/Novo_Layout/Cabecalho_equilibrio.png" />
+                        </td>
+                        
+                     <td class="style10" align="center">
+                            <asp:Label ID="LabelAcesso" runat="server" Font-Bold="True" 
+                             ForeColor="Black"  Font-Size="X-Small" 
+                                
+                                Text="A MEDIAÇÃO É UMA FORMA HUMANIZADA DE RESOLVER CONFLITOS, ONDE AS PARTES TOMAM A DECISÃO CONFORME SEUS PRINCÍPIOS E CRENÇAS; MELHORANDO SUAS RELAÇÕES PESSOAIS E COM O MUNDO." 
+                                Font-Italic="True" Font-Names="Miriam Libre"></asp:Label>
                         </td>
                         
                     </tr>
                     <tr>
-                        <td class="style5" colspan="2">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <td class="style12" colspan="2">
+                            <asp:ImageButton ID="ImageButtonSolicitarServico" runat="server" ImageUrl="~/Novo_Layout/SOLICITAR SERVIÇO.png" OnClick="ImageButtonSolicitarServico_Click" Width="162px" />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:ImageButton ID="ImageButtonNovoCadastro" runat="server" 
-                    ImageUrl="~/Novo_Layout/CADASTRAR HOME (1).png" 
-                    onclick="ImageButtonNovoCadastro_Click" Height="80px" />
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    ImageUrl="~/Novo_Layout/CADASTRO DE MEDIADOR.png" 
+                    onclick="ImageButtonNovoCadastro_Click" Height="67px" Width="189px" />
+                            &nbsp;&nbsp;&nbsp;
                 <asp:ImageButton ID="ImageButton1Cliente" runat="server" 
-                    ImageUrl="~/Novo_Layout/ACESSO home.png" 
-                    onclick="ImageButton1Cliente_Click" Height="80px" />
+                    ImageUrl="~/Novo_Layout/ACESSAR NOVO.png" 
+                    onclick="ImageButton1Cliente_Click" Height="68px" Width="199px" />
                             </td>
                     </tr>
                     </table>

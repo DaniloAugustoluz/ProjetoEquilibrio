@@ -13,6 +13,19 @@ public partial class Default2 : System.Web.UI.Page
         
         
     }
+
+    public string retornaTxt() {
+        return TextBoxAcaoCV.Text;
+    }
+
+    public string flagTxt() {
+        string txtCV = retornaTxt();
+        flag classe = new flag();
+        classe.SalvarTxt(txtCV);
+      
+        return txtCV;
+    }
+
     protected void ButtonSalvarFiles_Click(object sender, EventArgs e)
     {
         //Sessão Currículo
@@ -26,18 +39,17 @@ public partial class Default2 : System.Web.UI.Page
             if (extensao == ".pdf" && (extensaofoto == ".jpeg" || extensaofoto == ".jpg")) {
             FileUploadCV.PostedFile.SaveAs(Session["cv"].ToString());
             FileUploadFOTO.PostedFile.SaveAs(Session["foto"].ToString());
-            CheckBoxVerificaCV.Checked = true;
-            TextBoxAcaoCV.Text = "A";
             Response.Write("<script type=text/javascript>alert('Arquivo carregado com sucesso, clique em OK para continuar e depois no botão azul para prosseguir')</script>");
 
-            //Ativa flag de arquivos
-            if (FileUploadFOTO.HasFile == true && FileUploadCV.HasFile == true){
-                CheckBoxVerificaCV.Checked = true;
-                TextBoxAcaoCV.Text = "A";
             }
-        }
+    }
 
-        }
+    //Retorna o valor da ação e salva na classe flag
+    public void  retornaAcao(string acao) {
+        flag _retorno = new flag();
+        _retorno.retornaAcao(TextBoxAcaoCV.Text);
+        _retorno.flagAcaoretorno(TextBoxAcaoCV.Text);
+    }
 
     public int retornaValor(int flag) {
         if (flag == 1)
@@ -55,36 +67,49 @@ public partial class Default2 : System.Web.UI.Page
         flag retorno = new flag();
         bool retornoflag = false;
         
-        if (retorno.retornaFlag(CheckBoxVerificaCV.Checked ? 1 : 0) == true) {
+        if (retorno.retornaFlag(CheckBoxVerificaCV.Checked ? 1 : 0)) {
             retornoflag = true;
         };
 
         return retornoflag;
     }
 
-    public string flagAcao(string acao) {
-        flag retorno = new flag();
-        string flagacao = retorno.retornaAcao(acao);
-        
-        return flagacao;
-    }
+
 
     protected void ImageButtonOk_Click(object sender, ImageClickEventArgs e)
     {
+
+        //Ativa flag de arquivos caso tenha arquivos no fileupload.
+        if (FileUploadFOTO.HasFile && FileUploadCV.HasFile)
+        {
+            CheckBoxVerificaCV.Checked = true;
+            TextBoxAcaoCV.Text = "A";
+            Session["CheckBoxArquivos"] = CheckBoxVerificaCV.Checked ? 1 : 0;
+            Session["acaoCV"] = TextBoxAcaoCV.Text;
+        }
+        else if (!FileUploadFOTO.HasFile && !FileUploadCV.HasFile)
+        {
+            CheckBoxVerificaCV.Checked = false;
+            TextBoxAcaoCV.Text = "I";
+            Session["CheckBoxArquivos"] = CheckBoxVerificaCV.Checked ? 1 : 0;
+            Session["acaoCV"] = TextBoxAcaoCV.Text;
+        }
+
        
         //Verifica se há arquivos e salva textboxAcaoCV
         if (TextBoxAcaoCV.Text == "I") 
         {
             Response.Write("<script type=text/javascript>alert('Clique em ok para continuar sem anexar os documentos.')</script>");
-            TextBoxAcaoCV.Text = "I";
             flag(CheckBoxVerificaCV.Checked ? 1 : 0);
+            retornaAcao(TextBoxAcaoCV.Text);
             Response.Redirect("PreCadastro.aspx");
 
         }
-        else if (CheckBoxVerificaCV.Checked == true)
+        else if (CheckBoxVerificaCV.Checked  && TextBoxAcaoCV.Text == "A")
         {
             //Retorna Flag de Ação de arquivos, que verifica se eles foram salvos ou não.
-            flagAcao(TextBoxAcaoCV.Text);
+            retornaAcao(TextBoxAcaoCV.Text);
+            
             Response.Write("<script type=text/javascript>alert('Documentos anexados com sucesso.')</script>");
             Response.Redirect("PreCadastro.aspx");
         }
@@ -94,6 +119,6 @@ public partial class Default2 : System.Web.UI.Page
     }
     protected void ImageButtonVoltar_Click(object sender, ImageClickEventArgs e)
     {
-        Response.Redirect("MenuEquilibrio.aspx");
+        Response.Redirect("Acesso.aspx");
     }
 }

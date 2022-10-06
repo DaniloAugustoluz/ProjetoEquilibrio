@@ -20,6 +20,45 @@ public class EquilibrioClasse
 		//
 	}
 
+    public DataTable ObterFlagArquivo(string email) {
+        
+        DataTable _retorno = new DataTable();
+        MySqlConnection _conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["Mediacao"].ToString());
+
+        string s_comando = " SELECT FLG_ARQUIVO FROM TB_USUARIO WHERE EMAIL = '" + email.ToString().Trim() +"';";
+
+        MySqlDataAdapter dt_retorno = new MySqlDataAdapter(s_comando, _conn);
+
+        try
+        {
+            dt_retorno.Fill(_retorno);
+            return _retorno;
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+        finally {
+            dt_retorno.Dispose();
+        }
+
+    }   
+
+    private string _email;
+
+    public string email
+    {
+        get { return _email; }
+        set { _email = value; }
+
+    }
+
+    public string retornaEmail(string p_email)
+    {
+        _email = p_email;
+
+        return _email;
+    }
     
     public bool ValidaUsuario(string email, string senha)
     {

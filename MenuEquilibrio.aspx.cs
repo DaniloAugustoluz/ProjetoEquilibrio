@@ -10,12 +10,19 @@ public partial class MenuEquilibrio :  System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        flag verificacao = new flag();
-        string verifica = verificacao.retornaflagAcao();
-        if (verifica == "A")
+        LabelInformacao.Text = "Sistema de Mediação, Arbitragem e Conciliação.";
+
+
+        // Verifica se os arquivos já foram adicionados e avisa o usuário.
+       Session["email"] = Session["emailacesso"].ToString();
+        EquilibrioClasse classe = new EquilibrioClasse();
+        var retorno = classe.ObterFlagArquivo(Session["email"].ToString());
+
+        if (retorno.Equals(1))
         {
         }
-        else {
+        else 
+        {
             Response.Write("<script type/textjavascript>alert('POR FAVOR ACESSE A PÁGINA DE ARQUIVOS, PARA ANEXAR SEUS DOCUMENTOS.')</script>");
         }
     }
@@ -26,7 +33,6 @@ public partial class MenuEquilibrio :  System.Web.UI.Page
 
         return flag;
     }
-
 
     protected void ImageButtonSAIR_Click(object sender, ImageClickEventArgs e)
     {

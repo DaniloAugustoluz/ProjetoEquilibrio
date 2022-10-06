@@ -218,6 +218,7 @@
             <td class="style68">
                 </td>
             <td class="style69">
+                <asp:CheckBox ID="CheckBoxAcao" runat="server" Visible="False" />
                 </td>
         </tr>
         <tr>

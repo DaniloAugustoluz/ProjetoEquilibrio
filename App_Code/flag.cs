@@ -30,6 +30,16 @@ public class flag : System.Web.UI.Page
        return Mflag;
 	}
 
+    public string flagAcaoretorno(string retorno)
+    {
+        MAcao = retorno;
+
+        return MAcao;
+    }
+
+    public string Acao(){
+        return _retornaAcao;
+    }
     public bool retornaFlag(int flag) {
         
         bool retornaflag = false;
@@ -43,14 +53,19 @@ public class flag : System.Web.UI.Page
     }
 
     public string retornaflagAcao(){
-        string flagAcao = this._retornaAcao;
-
+        string flagAcao = this.MAcao;
         return flagAcao;
     }
 
     public string retornaAcao(string acao) {
         _retornaAcao = acao;
 
+        return _retornaAcao;
+    }
+
+    public string SalvarTxt(string txt) {
+        _retornaAcao = txt;
+        
         return _retornaAcao;
     }
 }

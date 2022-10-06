@@ -19,7 +19,7 @@ public class MasterClasse
 		//
 	}
 
-    public void InserirCadastro(string P_NOME, string P_CPF, string P_EMAIL, string P_SENHA, int P_MEDIADOR, int P_ARBITRO, int P_CONCILIADOR) { 
+    public void InserirCadastro(string P_NOME, string P_CPF, string P_EMAIL, string P_SENHA, int P_MEDIADOR, int P_ARBITRO, int P_CONCILIADOR, int P_FLG_ARQUIVO) { 
     
     try{
 
@@ -34,7 +34,8 @@ public class MasterClasse
             _comando.Append("'" + P_SENHA.Trim().ToString() + "',");
             _comando.Append("'" + P_MEDIADOR.ToString() + "',");
             _comando.Append("'" + P_ARBITRO.ToString() + "',");
-            _comando.Append("'" + P_CONCILIADOR.ToString() + "');");
+            _comando.Append("'" + P_CONCILIADOR.ToString() + "',");
+            _comando.Append("'" + P_FLG_ARQUIVO.ToString() + "');");
 
 
             MySqlCommand _comm = new MySqlCommand();

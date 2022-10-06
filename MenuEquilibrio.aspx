@@ -14,6 +14,10 @@
         {
             width: 222px;
         }
+        .style4
+        {
+            width: 3px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
@@ -27,7 +31,7 @@
         </td>
         <td class="style3">
             &nbsp;</td>
-        <td>
+        <td class="style4">
             &nbsp;
         </td>
         <td>
@@ -52,7 +56,7 @@
                 ImageUrl="~/Novo_Layout/TratarDocumento.jpg" 
                 onclick="ImageButtonAgenda_Click" Height="120px" Width="120px" />
         </td>
-        <td>
+        <td class="style4">
             &nbsp;</td>
         <td align="center">
             <asp:ImageButton ID="ImageButton1" runat="server" Height="100px" 
@@ -75,7 +79,7 @@
             <asp:Label ID="LabelDescritivo1" runat="server" Text="Cad.Documento" 
                 Font-Bold="True" ForeColor="Black"></asp:Label>
             </td>
-        <td style="text-align: center; margin-left: 200px;">
+        <td style="text-align: center; margin-left: 200px;" class="style4">
             &nbsp;</td>
         <td style="text-align: center; margin-left: 200px;" bgcolor="#4B6C9E">
             <asp:Label ID="LabelAdionaArquivos" runat="server" Text="Adicionar Arquivos" 
@@ -89,7 +93,19 @@
             &nbsp;</td>
         <td style="text-align: center; margin-left: 200px;" class="style3">
             &nbsp;</td>
+        <td style="text-align: center; margin-left: 200px;" class="style4">
+            &nbsp;</td>
         <td style="text-align: center; margin-left: 200px;">
+            &nbsp;</td>
+    </tr>
+    <tr>
+        <td class="style1">
+            &nbsp;</td>
+        <td style="text-align: center; margin-left: 200px;" class="style2">
+            &nbsp;</td>
+        <td style="text-align: center; margin-left: 200px;" class="style3">
+            &nbsp;</td>
+        <td style="text-align: center; margin-left: 200px;" class="style4">
             &nbsp;</td>
         <td style="text-align: center; margin-left: 200px;">
             &nbsp;</td>
@@ -106,8 +122,10 @@
                 onclick="ImageButtonAponta_Click" />
         </td>
         <td style="text-align: center; margin-left: 200px;" class="style3">
-            &nbsp;</td>
-        <td style="text-align: center; margin-left: 200px;">
+            <asp:Label ID="LabelInformacao" runat="server" Font-Bold="True" 
+                ForeColor="Black"></asp:Label>
+        </td>
+        <td style="text-align: center; margin-left: 200px;" class="style4">
             &nbsp;</td>
         <td style="text-align: center; margin-left: 200px;" align="right">
             <asp:ImageButton ID="ImageButtonSAIR" runat="server" 
@@ -127,7 +145,7 @@
             </td>
         <td style="text-align: center; margin-left: 200px;" class="style3">
             &nbsp;</td>
-        <td style="text-align: center; margin-left: 200px;">
+        <td style="text-align: center; margin-left: 200px;" class="style4">
             &nbsp;</td>
         <td style="text-align: center; margin-left: 200px;">
             &nbsp;</td>
