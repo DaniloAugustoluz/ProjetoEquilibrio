@@ -43,10 +43,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <table style="width: 100%;">
         <tr>
-            <td align="center" colspan="2">
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
+            <td align="center" colspan="2" class="style5">
+                </td>
+            <td class="style5">
+                </td>
         </tr>
         <tr>
             <td align="center" colspan="2">

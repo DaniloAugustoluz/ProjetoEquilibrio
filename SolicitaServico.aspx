@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
-    CodeFile="PreCadastro.aspx.cs" Inherits="_Default" %>
+    CodeFile="SolicitaServico.aspx.cs" Inherits="_Default" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
    
@@ -144,6 +144,7 @@
             <td class="style40">
                 </td>
             <td class="style39">
+                <asp:TextBox ID="TextBoxAcaoPrecad" runat="server" Visible="False">I</asp:TextBox>
                 </td>
         </tr>
         <tr>
@@ -154,6 +155,7 @@
                 <asp:TextBox ID="TextBoxName" runat="server" Width="250px" Height="24px"></asp:TextBox>
             </td>
             <td class="style78">
+                <asp:CheckBox ID="CheckBoxAcao" runat="server" Visible="False" />
                 </td>
         </tr>
         <tr>
@@ -193,33 +195,12 @@
                 </td>
         </tr>
         <tr>
-            <td class="style50">
-                </td>
-            <td class="style51">
-                </td>
-            <td class="style52">
-                </td>
-        </tr>
-        <tr>
-            <td class="style90">
-                <asp:Label ID="labelPassword" runat="server" Text="SENHA:"></asp:Label>
-            </td>
-            <td class="style91">
-                <asp:TextBox ID="TextBoxSenha" runat="server" Width="246px" 
-                    CssClass="submitButton" Height="24px" TextMode="Password"></asp:TextBox>
-            </td>
-            <td class="style92">
-                <asp:TextBox ID="TextBoxAcaoPrecad" runat="server" Visible="False">I</asp:TextBox>
-                </td>
-        </tr>
-        <tr>
             <td class="style67">
                 </td>
             <td class="style68">
                 </td>
             <td class="style69">
-                <asp:CheckBox ID="CheckBoxAcao" runat="server" Visible="False" />
-                </td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td class="style82">
@@ -234,7 +215,7 @@
                 <asp:CheckBox ID="CheckBoxConciliador" runat="server" />
             </td>
             <td class="style84">
-                </td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td class="style95">
@@ -243,6 +224,24 @@
                 </td>
             <td class="style97">
                 </td>
+        </tr>
+        <tr>
+            <td class="style95">
+                <asp:Label ID="LabelDescricao" runat="server" Text="DESCRIÇÃO DE SOLICITAÇÃO"></asp:Label>
+                </td>
+            <td class="style96">
+                <asp:TextBox ID="TextBoxDescricao" runat="server" TextMode="MultiLine" Width="100%"></asp:TextBox>
+                </td>
+            <td class="style97">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style95">
+                &nbsp;</td>
+            <td class="style96">
+                &nbsp;</td>
+            <td class="style97">
+                &nbsp;</td>
         </tr>
         <tr>
             <td class="style99">

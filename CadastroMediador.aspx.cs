@@ -12,7 +12,8 @@ public partial class Default3 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        Session["CaminhoCV"] = Session["cv"].ToString();
+        Session["CaminhoFoto"] = Session["foto"].ToString();
     }
 
     protected void ImageButtonCadMed_Click(object sender, ImageClickEventArgs e)
@@ -28,15 +29,16 @@ public partial class Default3 : System.Web.UI.Page
             {
 
                 EquilibrioClasse InsereMed = new EquilibrioClasse();
-                InsereMed.Inserir_Mediador(TextBoxNomeMed.Text, TextBoxEndMed.Text, TextBoxCepMed.Text, TextBoxBairroMed.Text, TextBoxCidadeMed.Text, TextBoxUFMed.Text, TextBoxEmailMed.Text, DropDownFUNCAO.SelectedItem.ToString(), CheckBoxFLGAtivo.Checked ? 1 : 0);
+                InsereMed.Inserir_Mediador(TextBoxNomeMed.Text, TextBoxEndMed.Text, TextBoxCepMed.Text, TextBoxBairroMed.Text, TextBoxCidadeMed.Text, TextBoxUFMed.Text, TextBoxEmailMed.Text, DropDownFUNCAO.SelectedItem.ToString(), CheckBoxFLGAtivo.Checked ? 1 : 0, Session["CaminhoCV"].ToString(), Session["CaminhoFoto"].ToString(), Session["CheckBoxArquivos"].Equals(1) ? 1 : 0);
                 Response.Write("<script type=text/javascript>alert('Cadastro Concluido com Sucesso!') </script>");
+                Response.Redirect("Acesso.aspx");
             }
 
             else
             {
                 EquilibrioClasse AlteraMed = new EquilibrioClasse();
                 AlteraMed.AlterarMediador(Convert.ToInt32(GridViewMediador.SelectedDataKey["ID_MEDIADOR"].ToString()),
-                TextBoxNomeMed.Text, TextBoxEndMed.Text, TextBoxCepMed.Text, TextBoxBairroMed.Text, TextBoxCidadeMed.Text, TextBoxUFMed.Text, TextBoxEmailMed.Text, DropDownFUNCAO.SelectedItem.ToString(), CheckBoxFLGAtivo.Checked ? 1 : 0);
+                TextBoxNomeMed.Text, TextBoxEndMed.Text, TextBoxCepMed.Text, TextBoxBairroMed.Text, TextBoxCidadeMed.Text, TextBoxUFMed.Text, TextBoxEmailMed.Text, DropDownFUNCAO.SelectedItem.ToString(), CheckBoxFLGAtivo.Checked ? 1 : 0, Session["CaminhoCV"].ToString(), Session["CaminhoFoto"].ToString(), Session["CheckBoxArquivos"].Equals(1) ? 1 : 0);
                 Response.Write("<script type=text/javascript>alert('Cadastro Alterado com Sucesso!') </script>");
 
             }
@@ -108,7 +110,7 @@ public partial class Default3 : System.Web.UI.Page
     {
         try
         {
-            Response.Redirect("MenuEquilibrio.aspx");
+            Response.Redirect("Acesso.aspx");
         }
         catch (Exception ex)
         {
@@ -116,7 +118,8 @@ public partial class Default3 : System.Web.UI.Page
             throw ex;
         }
     }
-    protected void ButtonCv_Click(object sender, EventArgs e)
+    
+    /* protected void ButtonCv_Click(object sender, EventArgs e)
     {
         try
         {
@@ -134,4 +137,5 @@ public partial class Default3 : System.Web.UI.Page
         
         }
     }
+    */
 }

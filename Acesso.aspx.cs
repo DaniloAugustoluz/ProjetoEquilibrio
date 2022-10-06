@@ -61,12 +61,11 @@ public partial class Acesso : System.Web.UI.Page
         Session["opcaoacesso"] = "n";  // cliente
         //btnConfirma.Visible = false;
         Panel1.Visible = false;
-        Response.Redirect("AdicionaCV.aspx");
+        Response.Redirect("CadastroMediador.aspx");
     }
     protected void ImageButton1Cliente_Click(object sender, ImageClickEventArgs e)
     {
         Session["opcaoacesso"] = "c";  // cliente
-
         btnConfirma.Visible = true;
         Panel1.Visible = true;
     }
@@ -77,6 +76,6 @@ public partial class Acesso : System.Web.UI.Page
 
     protected void ImageButtonSolicitarServico_Click(object sender, ImageClickEventArgs e)
     {
-        Response.Redirect("PreCadastro.aspx");
+        Response.Redirect("SolicitaServico.aspx");
     }
 }

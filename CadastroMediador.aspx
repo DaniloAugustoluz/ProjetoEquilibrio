@@ -10,6 +10,9 @@
         {
             height: 29px;
         }
+        .auto-style1 {
+            height: 21px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
@@ -29,7 +32,7 @@
         
         
         DataKeyNames="ID_MEDIADOR,NOME,ENDERECO,CEP,BAIRRO,CIDADE,UF,DATA_CADASTRO,EMAIL_MED,FUNCAO,FLG_ATIVO" 
-        Height="331px" CellSpacing="2" Font-Size="Small" HorizontalAlign="Center">
+        Height="331px" CellSpacing="2" Font-Size="Small" HorizontalAlign="Center" Visible="False">
         <AlternatingRowStyle BackColor="#F7F7F7" />
         <Columns>
             <asp:CommandField ShowSelectButton="True" />
@@ -86,10 +89,10 @@
             </td>
         </tr>
         <tr>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
+            <td class="auto-style1">
+                </td>
+            <td class="auto-style1">
+                </td>
         </tr>
         <tr>
             <td>
@@ -134,7 +137,7 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td>
+            <td class="style1">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Label ID="LabelCepMed" runat="server" ForeColor="#333333" Text="Cep:"></asp:Label>
     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -143,8 +146,8 @@
     <asp:Label ID="LabelCidadeMed" runat="server" ForeColor="#333333" Text="Cidade:"></asp:Label>
 &nbsp;<asp:TextBox ID="TextBoxCidadeMed" runat="server" Width="179px"></asp:TextBox>
             </td>
-            <td>
-                &nbsp;</td>
+            <td class="style1">
+                </td>
         </tr>
         <tr>
             <td>
@@ -156,42 +159,10 @@
                 &nbsp;</td>
         </tr>
         <tr>
-            <td>
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style1">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="LabelCv" runat="server" Text="Currículo"></asp:Label>
-&nbsp;&nbsp;&nbsp;
-                <asp:FileUpload ID="FileUploadCV" runat="server" />
-                <asp:Button ID="ButtonCv" runat="server" Height="26px" onclick="ButtonCv_Click" 
-                    Text="Salvar" />
-            </td>
-            <td class="style1">
+            <td class="auto-style1">
                 </td>
-        </tr>
-        <tr>
-            <td class="style1">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="LabelTextoArquivo" runat="server" Text="Nome do Arquivo"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="Label2" runat="server"></asp:Label>
-            </td>
-            <td class="style1">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="style1">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="LabelTamanhoArquivo" runat="server" Text="Tamanho do Arquivo"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="Label3" runat="server"></asp:Label>
-            </td>
-            <td class="style1">
-                &nbsp;</td>
+            <td class="auto-style1">
+                </td>
         </tr>
         <tr>
             <td>

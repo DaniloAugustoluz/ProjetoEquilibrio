@@ -206,7 +206,7 @@ public class EquilibrioClasse
             throw ex;
         }
     }
-    public void AlterarMediador(int ID_MEDIADOR, string NOME, string ENDERECO, string CEP, string BAIRRO, string CIDADE, string UF,/* string MINI_CV,*/ string EMAIL_MED, string FUNCAO, int FLG_ATIVO)
+    public void AlterarMediador(int ID_MEDIADOR, string NOME, string ENDERECO, string CEP, string BAIRRO, string CIDADE, string UF, string EMAIL_MED, string FUNCAO, int FLG_ATIVO, string LOCALCV, string LOCALFOTO, int FLG_ARQUIVO)
     {
 
         try
@@ -227,6 +227,9 @@ public class EquilibrioClasse
             _comando.Parameters.Add("P_EMAIL_MED", MySqlDbType.VarChar, 40).Value = EMAIL_MED;
             _comando.Parameters.Add("P_FUNCAO", MySqlDbType.VarChar, 50).Value = FUNCAO;
             _comando.Parameters.Add("P_FLG_ATIVO", MySqlDbType.Byte).Value = FLG_ATIVO;
+            _comando.Parameters.Add("P_LOCALCV", MySqlDbType.VarChar, 100).Value = LOCALCV;
+            _comando.Parameters.Add("P_LOCALFOTO", MySqlDbType.VarChar, 100).Value = LOCALFOTO;
+            _comando.Parameters.Add("P_FLG_ARQUIVO", MySqlDbType.Byte).Value = FLG_ARQUIVO;
 
             _conn.Open();
             _comando.Connection = _conn;
@@ -492,7 +495,7 @@ public class EquilibrioClasse
 
 
 
-    public void Inserir_Mediador(string NOME, string ENDERECO, string CEP, string BAIRRO, string CIDADE, string UF,/* string MINI_CV,*/ string EMAIL_MED, string FUNCAO, int FLG_ATIVO)
+    public void Inserir_Mediador(string NOME, string ENDERECO, string CEP, string BAIRRO, string CIDADE, string UF, string EMAIL_MED, string FUNCAO, int FLG_ATIVO, string LOCALCV, string LOCALFOTO, int FLG_ARQUIVO)
     {
 
         try
@@ -503,18 +506,19 @@ public class EquilibrioClasse
 
             //String Builder _comandoStr
             StringBuilder _comandoStr = new StringBuilder();
-            _comandoStr.Append(" INSERT INTO TB_MEDIADOR (NOME, ENDERECO, CEP, BAIRRO, CIDADE, UF, EMAIL_MED, FUNCAO, FLG_ATIVO) Values(");
+            _comandoStr.Append(" INSERT INTO TB_MEDIADOR (NOME, ENDERECO, CEP, BAIRRO, CIDADE, UF, EMAIL_MED, FUNCAO, FLG_ATIVO, LOCALCV, LOCALFOTO, FLG_ARQUIVO) Values(");
             _comandoStr.Append("'" + NOME.ToString() + "',");
             _comandoStr.Append("'" + ENDERECO.ToString() + "',");
             _comandoStr.Append("'" + CEP.ToString() + "',");
             _comandoStr.Append("'" + BAIRRO.ToString() + "',");
             _comandoStr.Append("'" + CIDADE.ToString() + "',");
             _comandoStr.Append("'" + UF.ToString() + "',");
-            //      _comandoStr.Append("'" + MINI_CV.ToString() + "',");
             _comandoStr.Append("'" + EMAIL_MED.ToString() + "',");
             _comandoStr.Append("'" + FUNCAO.ToString() + "',");
+            _comandoStr.Append("'" + FLG_ATIVO.ToString() + "',");
+            _comandoStr.Append("'" + LOCALCV.ToString() + "',");
+            _comandoStr.Append("'" + LOCALFOTO.ToString() + "',");
             _comandoStr.Append("'" + FLG_ATIVO.ToString() + "');");
-
 
             //Configurando o SQLComand
             MySqlCommand _comand = new MySqlCommand();

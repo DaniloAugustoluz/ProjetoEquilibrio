@@ -28,13 +28,14 @@ public partial class _Default : System.Web.UI.Page
         }
 
         MasterClasse _class = new MasterClasse();
-        _class.InserirCadastro(TextBoxName.Text, TextBox1NumberCpf.Text, TextBoxEmail.Text.Trim(), TextBoxSenha.Text.Trim(), CheckBoxMediador.Checked ? 1 : 0, CheckBoxArbitro.Checked ? 1 : 0, CheckBoxConciliador.Checked ? 1 : 0, CheckBoxAcao.Checked ? 1 : 0);
+        _class.InserirCadastro(TextBoxName.Text, TextBox1NumberCpf.Text, TextBoxEmail.Text.Trim(), CheckBoxMediador.Checked ? 1 : 0, CheckBoxArbitro.Checked ? 1 : 0, CheckBoxConciliador.Checked ? 1 : 0, CheckBoxAcao.Checked ? 1 : 0, TextBoxDescricao.Text);
+        Session["EmailRetorno"] = TextBoxEmail.Text;
         Response.Write("<script type=text/javascript> alert('Cadastrado com Sucesso!')</script>");
-        Response.Redirect("Acesso.aspx");
+        Response.Redirect("Aviso.aspx");
     }
 
     protected void imageButtonBack_Click(object sender, ImageClickEventArgs e)
     {
-        Response.Redirect("http://www.equilibrio.volitsistemas.com.br/site/");
+        Response.Redirect("Acesso.aspx");
     }
 }

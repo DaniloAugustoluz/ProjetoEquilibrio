@@ -102,16 +102,15 @@ public partial class Default2 : System.Web.UI.Page
             Response.Write("<script type=text/javascript>alert('Clique em ok para continuar sem anexar os documentos.')</script>");
             flag(CheckBoxVerificaCV.Checked ? 1 : 0);
             retornaAcao(TextBoxAcaoCV.Text);
-            Response.Redirect("PreCadastro.aspx");
+            Response.Redirect("CadastroMediador.aspx");
 
         }
         else if (CheckBoxVerificaCV.Checked  && TextBoxAcaoCV.Text == "A")
         {
             //Retorna Flag de Ação de arquivos, que verifica se eles foram salvos ou não.
             retornaAcao(TextBoxAcaoCV.Text);
-            
             Response.Write("<script type=text/javascript>alert('Documentos anexados com sucesso.')</script>");
-            Response.Redirect("PreCadastro.aspx");
+            Response.Redirect("CadastroMediador.aspx");
         }
 
         
