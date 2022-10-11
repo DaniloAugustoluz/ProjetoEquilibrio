@@ -6,6 +6,7 @@ using System.Data;
 using System.Configuration;
 using MySql.Data.MySqlClient;
 using System.Text;
+using System.Activities.Statements;
 
 /// <summary>
 /// Summary description for MasterClasse
@@ -19,22 +20,19 @@ public class MasterClasse
 		//
 	}
 
-    public void InserirCadastro(string P_NOME, string P_CPF, string P_EMAIL, int P_MEDIADOR, int P_ARBITRO, int P_CONCILIADOR, int P_FLG_ARQUIVO, string P_DESCRICAO) { 
+    public void InserirSolicitacaoDemandante(string P_NOME, string P_CPF, string P_EMAIL, string P_TELEFONE, string P_DESCRICAO) { 
     
     try{
 
             MySqlConnection _conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["Mediacao"].ToString());
             StringBuilder _comando = new StringBuilder();
             _conn.Open();
-             
-            _comando.Append(" CALL  PRC_INSERT_SOLICITACAO (");
+
+            _comando.Append(" INSERT INTO TB_DEMANDANTE(NOME, CPF, EMAIL, TELEFONE, DESCRICAO) VALUES(");
             _comando.Append("'" + P_NOME.Trim() + "',");
             _comando.Append("'" + P_CPF.Trim().ToString() + "',");
             _comando.Append("'" + P_EMAIL.Trim().ToString() + "',");
-            _comando.Append("'" + P_MEDIADOR.ToString() + "',");
-            _comando.Append("'" + P_ARBITRO.ToString() + "',");
-            _comando.Append("'" + P_CONCILIADOR.ToString() + "',");
-            _comando.Append("'" + P_FLG_ARQUIVO.ToString() + "',");
+            _comando.Append("'" + P_TELEFONE.Trim().ToString() + "',");
             _comando.Append("'" + P_DESCRICAO.ToString() + "');");
 
             MySqlCommand _comm = new MySqlCommand();
@@ -53,4 +51,38 @@ public class MasterClasse
         throw ex;
     }
    }
+
+    public void InserirSolicitacaoDemandado(string  P_MODALIDADE,string P_NOME_DEMANDANDO, string P_CPF_CNPJ, string P_EMAIL, string P_TELEFONE, int P_ID_DEMANDANTE)
+    {
+        try
+        {
+            MySqlConnection _conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["Mediacao"].ToString());
+            StringBuilder _comando = new StringBuilder();
+            _conn.Open();
+
+            _comando.Append(" INSERT INTO TB_SOLICITACAO (MODALIDADE, NOME_DEMANDADO, CPF_CNPJ, EMAIL, TELEFONE, IDDEMANDANTE) VALUES(");
+            _comando.Append("'" + P_MODALIDADE.ToString().Trim() + "',");
+            _comando.Append("'" + P_NOME_DEMANDANDO.ToString().Trim() + "',");
+            _comando.Append("'" + P_CPF_CNPJ.ToString().Trim() + "',");
+            _comando.Append("'" + P_EMAIL.ToString().Trim() + "',");
+            _comando.Append("'" + P_TELEFONE.ToString().Trim() + "',");
+            _comando.Append("'" + P_ID_DEMANDANTE.ToString().Trim() + "');");  
+
+            MySqlCommand _comm = new MySqlCommand();
+            _comm.Connection = _conn;
+            _comm.CommandType = CommandType.Text;
+            _comm.CommandText = _comando.ToString();
+            _comm.ExecuteNonQuery();
+
+            _conn.Close();
+            _conn.Dispose();
+            _comm.Dispose();
+
+
+        }
+        catch (Exception ex) {
+            throw ex;
+        }
+    
+    }
 }

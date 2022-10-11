@@ -5,23 +5,51 @@
         .auto-style1 {
             height: 21px;
         }
+        .auto-style4 {
+            height: 21px;
+            width: 349px;
+        }
+        .auto-style5 {
+            width: 349px;
+        }
+        .auto-style6 {
+            height: 21px;
+            width: 378px;
+        }
+        .auto-style7 {
+            width: 378px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <table style="width:100%;">
         <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="auto-style1"></td>
-            <td class="auto-style1"></td>
+            <td class="auto-style6">&nbsp;</td>
+            <td class="auto-style4"></td>
             <td class="auto-style1"></td>
         </tr>
         <tr>
+            <td class="auto-style7" align="center" rowspan="3">
+                <asp:Image ID="Image1" runat="server" ImageUrl="~/Novo_Layout/logo_equilibrio.png" Width="100%" />
+            </td>
+            <td class="auto-style4"></td>
+            <td class="auto-style1"></td>
+        </tr>
+        <tr>
+            <td class="auto-style5">
+                <asp:Label ID="LabelTitulo" runat="server" Font-Bold="True" Font-Italic="False" Font-Names="Arial" Text="OBRIGADO POR REALIZAR SUA SOLICITAÇÃO"></asp:Label>
+            </td>
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style4">
+                <asp:Label ID="LabelMensagem" runat="server"></asp:Label>
+            </td>
+            <td class="auto-style1"></td>
+        </tr>
+        <tr>
+            <td class="auto-style7">&nbsp;</td>
+            <td class="auto-style5">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
     </table>

@@ -247,6 +247,54 @@ public class EquilibrioClasse
 
     }
 
+    public int Id_Demandante(string email) {
+        MySqlConnection _conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["Mediacao"].ToString());
+        _conn.Open();
+        
+        try {
+            string _comando = "CALL PRC_RETORNA_DEMANDANTE('" + email + "');";
+            
+            MySqlCommand _comandoSql = new MySqlCommand();
+            _comandoSql.Connection = _conn;
+            _comandoSql.CommandType = CommandType.Text;
+            _comandoSql.CommandText = _comando.ToString();
+            int s_retorno = Convert.ToInt32(_comandoSql.ExecuteScalar().ToString());
+            return s_retorno;
+
+        }
+        catch (Exception ex){ 
+            throw ex;
+        }
+        finally
+        {
+            _conn.Close();
+        } 
+    }
+    public DataTable ObterDemandante(string email) {
+        
+            DataTable _retorno = new DataTable();
+            string _conn = ConfigurationManager.ConnectionStrings["Mediacao"].ToString();
+
+
+            string _comando = "CALL PRC_RETORNA_DEMANDANTE('" + email + "');";
+
+            MySqlDataAdapter _adapter = new MySqlDataAdapter(_comando, _conn);
+            try
+            {
+                _adapter.Fill(_retorno);
+                return _retorno;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                _adapter.Dispose();
+            }       
+    }
+
     public DataTable ObterMediador()
     {
         DataTable _dtRetorno = new DataTable();
