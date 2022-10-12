@@ -10,8 +10,12 @@ public partial class Default2 : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //Pega o email do demandante e retorna uma mensagem informando sobre a solicitação.
-        Session["EmailAviso"] = Session["EmailRetorno"].ToString();
-        LabelMensagem.Text = "Aguarde o retorno da nossa equipe que será enviado no email " + Session["EmailAviso"].ToString();
+        string email = Session["EmailRetorno"].ToString();
+        LabelMensagem.Text = "Aguarde o retorno da nossa equipe que será enviado no email " + email;
 
+    }
+    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+    {
+        Response.Redirect("http://equilibrio.volitsistemas.com.br/site");
     }
 }

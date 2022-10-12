@@ -84,9 +84,6 @@
                         <td class="style12" colspan="2">
                             <asp:ImageButton ID="ImageButtonSolicitarServico" runat="server" ImageUrl="~/Novo_Layout/SOLICITAR SERVIÇO.png" OnClick="ImageButtonSolicitarServico_Click" Width="162px" />
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:ImageButton ID="ImageButtonNovoCadastro" runat="server" 
-                    ImageUrl="~/Novo_Layout/CADASTRO DE MEDIADOR.png" 
-                    onclick="ImageButtonNovoCadastro_Click" Height="67px" Width="189px" />
                             &nbsp;&nbsp;&nbsp;
                 <asp:ImageButton ID="ImageButton1Cliente" runat="server" 
                     ImageUrl="~/Novo_Layout/ACESSAR NOVO.png" 

@@ -37,15 +37,22 @@
         </tr>
         <tr>
             <td class="auto-style5">
-                <asp:Label ID="LabelTitulo" runat="server" Font-Bold="True" Font-Italic="False" Font-Names="Arial" Text="OBRIGADO POR REALIZAR SUA SOLICITAÇÃO"></asp:Label>
+                <asp:Label ID="LabelTitulo" runat="server" Font-Bold="True" Font-Italic="False" 
+                    Font-Names="Bahnschrift Light" Text="OBRIGADO POR REALIZAR SUA SOLICITAÇÃO" 
+                    ForeColor="#4B6C9E"></asp:Label>
             </td>
             <td>&nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style4">
-                <asp:Label ID="LabelMensagem" runat="server"></asp:Label>
+                <asp:Label ID="LabelMensagem" runat="server" Font-Bold="True" 
+                    ForeColor="#4B6C9E"></asp:Label>
             </td>
-            <td class="auto-style1"></td>
+            <td class="auto-style1" align="center">
+                <asp:ImageButton ID="ImageButtonSair" runat="server" 
+                    ImageUrl="~/Novo_Layout/botaoSair.png" onclick="ImageButton1_Click" 
+                    Width="50%" />
+            </td>
         </tr>
         <tr>
             <td class="auto-style7">&nbsp;</td>

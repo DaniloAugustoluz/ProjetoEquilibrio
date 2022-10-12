@@ -20,6 +20,20 @@ public class EquilibrioClasse
 		//
 	}
 
+    private string TextoEmail;
+    
+    public string _textoEmail { 
+    
+        get{return TextoEmail;}
+        set { TextoEmail = value; } 
+    
+    }
+
+    public string retornaTexto(string p_texto) {
+        this.TextoEmail = p_texto;
+        return TextoEmail;
+    }
+
     public DataTable ObterFlagArquivo(string email) {
         
         DataTable _retorno = new DataTable();

@@ -25,14 +25,17 @@ public partial class _Default : System.Web.UI.Page
         //Retorna o ID do demandante para adicionar na solicitação.
         EquilibrioClasse _pegarID = new EquilibrioClasse();
         int retornoID = _pegarID.Id_Demandante(TextBoxEmail.Text);
-
+        string salvarTexto = _pegarID.retornaTexto(TextBoxDescricao.Text);
         //Inserindo solicitacao Demandando
         MasterClasse _classDemandado = new MasterClasse();
         _classDemandado.InserirSolicitacaoDemandado(DropDownListModalidade.SelectedValue, TextBoxNomeDemandado.Text, TextBoxCpfDemandado.Text, TextBoxEmailDemandado.Text, TextBoxTelDemandado.Text, retornoID); ;
 
+        EquilibrioClasse _classe = new EquilibrioClasse();
+        _classe.retornaEmail(TextBoxDescricao.Text);
+
         //Enviar email
         EnvioEmail _email = new EnvioEmail();
-        _email.EnviarEmail(TextBoxEmail.Text);
+        _email.EnviarEmail(TextBoxEmail.Text, TextBoxDescricao.Text);
         Response.Redirect("Aviso.aspx");
 
     }

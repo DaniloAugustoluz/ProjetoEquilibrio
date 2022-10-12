@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Mail;
 using System.Web;
 using System.Net.Mime;
@@ -18,23 +17,36 @@ public class EnvioEmail
 		// TODO: Add constructor logic here
 		//
 	}
-
+   
 	//Envio de Email automático da página de aviso!
-	public void EnviarEmail(string P_EMAIL)
+	public void EnviarEmail(string P_EMAIL, string TextoEmail)
 	{
 
-        MailMessage _mail = new MailMessage();
-        _mail.From = new MailAddress("daniloaugusto.luzz@gmail.com");
-		_mail.To.Add(P_EMAIL);
+        try
+        {
+            MailMessage _mail = new MailMessage();
+            _mail.From = new MailAddress("danilo.augusto@volit.com.br", "Sistema de Mediação.", System.Text.Encoding.UTF8);
+            _mail.To.Add(new MailAddress("zmargutti@gmail.com"));
+            _mail.To.Add(new MailAddress(P_EMAIL));
+            _mail.Subject = "Teste de envio de EMAIL";
+            _mail.Body = "Prezado, informamos que recebemos sua solicitação e que a mesma se encontra em análise, aguarde o retorno da nossa equipe para prosseguir!  \r\n  \r\nRelato do caso:  " + "\r\n" + TextoEmail;
+            _mail.Priority = MailPriority.High;
 
-		_mail.Subject = "Teste de envio de EMAIL";
-		_mail.Body = "Teste de corpo do email.";
 
-		SmtpClient _enviar = new SmtpClient();
-		
-		
-		_enviar.Send(_mail);
 
+            SmtpClient _enviar = new SmtpClient();
+            _enviar.EnableSsl = false;
+            _enviar.Credentials = new System.Net.NetworkCredential("danilo.augusto@volit.com.br", "Dan@868298");
+            _enviar.Host = "smtp.kinghost.net";
+            _enviar.Port = 587;
+
+            _enviar.Send(_mail);
+            
+
+        }
+        catch (Exception ex) {
+            throw ex;
+        }
 
 
     }
