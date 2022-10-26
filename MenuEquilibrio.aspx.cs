@@ -23,7 +23,7 @@ public partial class MenuEquilibrio :  System.Web.UI.Page
         }
         else 
         {
-            Response.Write("<script type/textjavascript>alert('POR FAVOR ACESSE A PÁGINA DE ARQUIVOS, PARA ANEXAR SEUS DOCUMENTOS.')</script>");
+            //Response.Write("<script type/textjavascript>alert('POR FAVOR ACESSE A PÁGINA DE ARQUIVOS, PARA ANEXAR SEUS DOCUMENTOS.')</script>");
         }
     }
 
@@ -44,7 +44,7 @@ public partial class MenuEquilibrio :  System.Web.UI.Page
     {
         try
         {
-            Response.Redirect("CadastroMediador.aspx");
+            Response.Redirect("AdicionaCV.aspx");
         }
         catch (Exception ex)
         {

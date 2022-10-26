@@ -14,6 +14,7 @@ public partial class Default3 : System.Web.UI.Page
     {
         Session["CaminhoCV"] = Session["cv"].ToString();
         Session["CaminhoFoto"] = Session["foto"].ToString();
+        Session["Arquivos"] = Session["CheckBoxArquivos"].ToString();
     }
 
     protected void ImageButtonCadMed_Click(object sender, ImageClickEventArgs e)
@@ -27,25 +28,27 @@ public partial class Default3 : System.Web.UI.Page
 
             if (TextBoxAcaoMed.Text == "I")
             {
-
                 EquilibrioClasse InsereMed = new EquilibrioClasse();
-                InsereMed.Inserir_Mediador(TextBoxNomeMed.Text, TextBoxEndMed.Text, TextBoxCepMed.Text, TextBoxBairroMed.Text, TextBoxCidadeMed.Text, TextBoxUFMed.Text, TextBoxEmailMed.Text, DropDownFUNCAO.SelectedItem.ToString(), CheckBoxFLGAtivo.Checked ? 1 : 0, Session["CaminhoCV"].ToString(), Session["CaminhoFoto"].ToString(), Session["CheckBoxArquivos"].Equals(1) ? 1 : 0);
+                InsereMed.Inserir_Mediador(TextBoxNomeMed.Text, TextBoxEndMed.Text, TextBoxCepMed.Text, TextBoxBairroMed.Text, TextBoxCidadeMed.Text, TextBoxUFMed.Text, TextBoxEmailMed.Text, DropDownFUNCAO.SelectedItem.ToString(), CheckBoxFLGAtivo.Checked ? 1 : 0, Session["CaminhoCV"].ToString(), Session["CaminhoFoto"].ToString(), Session["Arquivos"].Equals(1) ? 1 : 0);
+                Session["EmailMediador"] = TextBoxEmailMed.Text;
                 Response.Write("<script type=text/javascript>alert('Cadastro Concluido com Sucesso!') </script>");
-                Response.Redirect("Acesso.aspx");
+                Response.Redirect("MenuEquilibrio.aspx");
             }
 
             else
             {
                 EquilibrioClasse AlteraMed = new EquilibrioClasse();
                 AlteraMed.AlterarMediador(Convert.ToInt32(GridViewMediador.SelectedDataKey["ID_MEDIADOR"].ToString()),
-                TextBoxNomeMed.Text, TextBoxEndMed.Text, TextBoxCepMed.Text, TextBoxBairroMed.Text, TextBoxCidadeMed.Text, TextBoxUFMed.Text, TextBoxEmailMed.Text, DropDownFUNCAO.SelectedItem.ToString(), CheckBoxFLGAtivo.Checked ? 1 : 0, Session["CaminhoCV"].ToString(), Session["CaminhoFoto"].ToString(), Session["CheckBoxArquivos"].Equals(1) ? 1 : 0);
+                TextBoxNomeMed.Text, TextBoxEndMed.Text, TextBoxCepMed.Text, TextBoxBairroMed.Text, TextBoxCidadeMed.Text, TextBoxUFMed.Text, TextBoxEmailMed.Text, DropDownFUNCAO.SelectedItem.ToString(), CheckBoxFLGAtivo.Checked ? 1 : 0, Session["CaminhoCV"].ToString(), Session["CaminhoFoto"].ToString(), Session["Arquivos"].Equals(1) ? 1 : 0);
                 Response.Write("<script type=text/javascript>alert('Cadastro Alterado com Sucesso!') </script>");
 
             }
         }
-        // atualizar o grid
+
+        //Atualizar o grid
         GridViewMediador.DataBind();
-        // limpeza da tela
+        
+        //Limpeza da tela
         Limpar_tela();
         TextBoxAcaoMed.Text = "I";
     }
@@ -97,8 +100,6 @@ public partial class Default3 : System.Web.UI.Page
             DropDownFUNCAO.SelectedValue = GridViewMediador.SelectedDataKey["FUNCAO"].ToString();
             CheckBoxFLGAtivo.Checked = Convert.ToBoolean(GridViewMediador.SelectedDataKey["FLG_ATIVO"].ToString());
         }
-
-
         catch (Exception ex)
         {
             throw ex;
@@ -119,23 +120,4 @@ public partial class Default3 : System.Web.UI.Page
         }
     }
     
-    /* protected void ButtonCv_Click(object sender, EventArgs e)
-    {
-        try
-        {
-
-            String nome = FileUploadCV.FileName;
-            Label2.Text = nome;
-            String caminho = Server.MapPath(@"curriculo/");
-
-            Label3.Text = FileUploadCV.PostedFile.ContentLength.ToString();
-
-            FileUploadCV.PostedFile.SaveAs(caminho + nome);
-        }
-        
-        catch { 
-        
-        }
-    }
-    */
 }

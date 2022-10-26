@@ -12,6 +12,20 @@
         .auto-style2 {
             height: 21px;
         }
+        .auto-style3 {
+            width: 581px;
+        }
+        .auto-style4 {
+            height: 21px;
+            width: 581px;
+        }
+        .auto-style5 {
+            height: 37px;
+        }
+        .auto-style6 {
+            width: 581px;
+            height: 37px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
@@ -19,28 +33,30 @@
         <tr>
             <td class="style1">
                 &nbsp;</td>
-            <td>
+            <td class="auto-style3">
                 &nbsp;</td>
             <td>
                 &nbsp;</td>
         </tr>
         <tr>
-            <td class="style1">
+            <td class="auto-style5">
                 <asp:Label ID="Label1" runat="server" Text="Escolha o mediador:"></asp:Label>
             </td>
-            <td>
-                <asp:DropDownList ID="DropDownList1" runat="server" Width="100%">
+            <td class="auto-style6">
+                <asp:DropDownList ID="DropDownList1" runat="server" Width="100%" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" OnLoad="DropDownList1_Load" OnPreRender="DropDownList1_Load">
                 </asp:DropDownList>
             </td>
-            <td>
-                &nbsp;</td>
+            <td class="auto-style5">
+                <asp:ObjectDataSource ID="ObjectDataSourceObterMediadorCV" runat="server" SelectMethod="RetornaCvMediador" TypeName="EquilibrioClasse"></asp:ObjectDataSource>
+            </td>
         </tr>
         <tr>
             <td class="auto-style1">
                 </td>
-            <td class="auto-style2">
+            <td class="auto-style4">
                 </td>
-            <td class="auto-style2">
+            <td class="auto-style2" align="right">
+                <asp:ImageButton ID="ImageButtonContinuar" runat="server" Height="40px" ImageUrl="~/Novo_Layout/direita.png" OnClick="ImageButtonContinuar_Click" Width="40px" />
                 </td>
         </tr>
         <tr>

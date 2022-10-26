@@ -118,6 +118,6 @@ public partial class Default2 : System.Web.UI.Page
     }
     protected void ImageButtonVoltar_Click(object sender, ImageClickEventArgs e)
     {
-        Response.Redirect("Acesso.aspx");
+        Response.Redirect("MenuEquilibrio.aspx");
     }
 }

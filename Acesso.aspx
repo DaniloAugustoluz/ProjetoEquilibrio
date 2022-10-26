@@ -58,36 +58,28 @@
                         
                     </tr>
                     <tr>
-                     <td class="style11">
-                            &nbsp;</td>
-                        
-                     <td class="style4">
-                            &nbsp;</td>
-                        
-                    </tr>
-                    <tr>
-                     <td class="style11" align="center">
-                        <asp:Image ID="Image1" runat="server" ImageAlign="Middle" Width="544px"  
+                     <td class="style4" align="center" colspan="2">
+                        <asp:Image ID="Image1" runat="server" ImageAlign="Left" Width="538px"  
                              Heght="400px" ImageUrl="~/Novo_Layout/Cabecalho_equilibrio.png" />
-                        </td>
-                        
-                     <td class="style10" align="center">
+                         <br />
                             <asp:Label ID="LabelAcesso" runat="server" Font-Bold="True" 
-                             ForeColor="Black"  Font-Size="X-Small" 
+                             ForeColor="#4B6C9E"  Font-Size="Small" 
                                 
                                 Text="A MEDIAÇÃO É UMA FORMA HUMANIZADA DE RESOLVER CONFLITOS, ONDE AS PARTES TOMAM A DECISÃO CONFORME SEUS PRINCÍPIOS E CRENÇAS; MELHORANDO SUAS RELAÇÕES PESSOAIS E COM O MUNDO." 
-                                Font-Italic="True" Font-Names="Miriam Libre"></asp:Label>
+                                Font-Italic="True" Font-Names="Segoe UI Semibold"></asp:Label>
                         </td>
                         
                     </tr>
                     <tr>
                         <td class="style12" colspan="2">
-                            <asp:ImageButton ID="ImageButtonSolicitarServico" runat="server" ImageUrl="~/Novo_Layout/SOLICITAR SERVIÇO.png" OnClick="ImageButtonSolicitarServico_Click" Width="162px" />
+                            <br />
+                            <br />
+                            <asp:ImageButton ID="ImageButtonSolicitarServico" runat="server" ImageUrl="~/Novo_Layout/icons8-adicionar-50.png" OnClick="ImageButtonSolicitarServico_Click" Width="6%" ToolTip="Solicitar Mediação" />
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:ImageButton ID="ImageButton1Cliente" runat="server" 
-                    ImageUrl="~/Novo_Layout/ACESSAR NOVO.png" 
-                    onclick="ImageButton1Cliente_Click" Height="68px" Width="199px" />
+                    ImageUrl="~/Novo_Layout/icons8-entrar-50.png" 
+                    onclick="ImageButton1Cliente_Click" Height="68px" Width="6%" ToolTip="Acessar" />
                             </td>
                     </tr>
                     </table>

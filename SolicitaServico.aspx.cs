@@ -13,22 +13,48 @@ public partial class _Default : System.Web.UI.Page
         Session["VerificacaoCheckBox"] = Session["CheckBoxArquivos"];
         TextBoxName.Focus();
     }
+    public int retornaChecarEscolherMed(int checkBoxSim, int checkBoxNao)
+    {
+        int checkSim = checkBoxSim;
+        int checkNao = checkBoxNao;
+       
+        if (checkSim.Equals(1))
+        {
+            CheckBoxNao.Checked = false;
+            return checkBoxSim;
 
+        }
+        else
+        {
+            CheckBoxNao.Checked = true; 
+            return checkBoxNao;
+        }
+        
+        
+    }
     protected void imageSubmit_Click(object sender, ImageClickEventArgs e)
     {
         
         //Inserindo Solicitacao Demandante
         MasterClasse _class = new MasterClasse();
-        _class.InserirSolicitacaoDemandante(TextBoxName.Text, TextBox1NumberCpf.Text, TextBoxEmail.Text.Trim(), TextBoxTelefone.Text, TextBoxDescricao.Text);
+        _class.InserirSolicitante(TextBoxName.Text, TextBox1NumberCpf.Text, TextBoxEmail.Text.Trim(), TextBoxTelefone.Text, TextBoxDescricao.Text, TextBoxNacionalidade.Text, DropDownListEstadoCivilSolicitante.SelectedValue, TextBoxProfissao.Text, TextBoxCep.Text, TextBoxEndereco.Text);
         Session["EmailRetorno"] = TextBoxEmail.Text;
 
         //Retorna o ID do demandante para adicionar na solicitação.
         EquilibrioClasse _pegarID = new EquilibrioClasse();
-        int retornoID = _pegarID.Id_Demandante(TextBoxEmail.Text);
+        int retornoID = _pegarID.Id_Solicitante(TextBoxEmail.Text);
         string salvarTexto = _pegarID.retornaTexto(TextBoxDescricao.Text);
-        //Inserindo solicitacao Demandando
-        MasterClasse _classDemandado = new MasterClasse();
-        _classDemandado.InserirSolicitacaoDemandado(DropDownListModalidade.SelectedValue, TextBoxNomeDemandado.Text, TextBoxCpfDemandado.Text, TextBoxEmailDemandado.Text, TextBoxTelDemandado.Text, retornoID); ;
+
+        //Inserindo Solicitado
+        MasterClasse _classeSolicitado = new MasterClasse();
+        _classeSolicitado.InserirSolicitado(TextBoxNomeSolicitado.Text, TextBoxCpfSolicitado.Text, TextBoxEmailSolicitado.Text, TextBoxTelSolicitado.Text, TextBoxNacionalidadeSolicitado.Text, 
+        DropDownListEstadoCivilSolicitado.SelectedValue, TextBoxProfissaoSolicitado.Text, TextBoxCepSolicitado.Text, TextBoxEnderecoSolicitado.Text);
+
+        //Inserindo solicitacao 
+        MasterClasse _classSolicitado = new MasterClasse();
+        int retornaIdSolicitado = _classSolicitado.Id_Solicitado(TextBoxEmailSolicitado.Text);
+        int escolherMed = retornaChecarEscolherMed(Convert.ToInt32(CheckBoxSim.Checked), Convert.ToInt32(CheckBoxNao.Checked));        
+        _classSolicitado.InserirSolicitacao(escolherMed,DropDownListModalidade.SelectedValue, retornoID, retornaIdSolicitado); ;
 
         EquilibrioClasse _classe = new EquilibrioClasse();
         _classe.retornaEmail(TextBoxDescricao.Text);
@@ -50,7 +76,7 @@ public partial class _Default : System.Web.UI.Page
         
 
         //Liberar Panel para Demandado
-        LabelInfoDemandado.Text = "Caso seja necessário, clique na caneta para editar as informações do demandante.";
+        LabelInfoDemandado.Text = "Caso seja necessário, clique na caneta para editar as informações do Solicitante.";
         ImageButtonEditar.Visible = true;
         PanelDemandado.Visible = true;
         TextBoxName.Enabled = false;
@@ -58,6 +84,11 @@ public partial class _Default : System.Web.UI.Page
         TextBoxEmail.Enabled = false;
         TextBoxTelefone.Enabled = false;
         TextBoxDescricao.Enabled = false;
+        TextBoxNacionalidade.Enabled = false;
+        DropDownListEstadoCivilSolicitante.Enabled = false;
+        TextBoxProfissao.Enabled = false;
+        TextBoxCep.Enabled = false;
+        TextBoxEndereco.Enabled = false;
 
     }
 
@@ -67,7 +98,12 @@ public partial class _Default : System.Web.UI.Page
         TextBox1NumberCpf.Enabled = true;
         TextBoxEmail.Enabled = true;
         TextBoxTelefone.Enabled = true;
-        TextBoxDescricao.Enabled = true;
+        TextBoxDescricao.Enabled = true; TextBoxNacionalidade.Enabled = false;
+        DropDownListEstadoCivilSolicitante.Enabled = true;
+        TextBoxProfissao.Enabled = true;
+        TextBoxCep.Enabled = true;
+        TextBoxEndereco.Enabled = true;
+
     }
 
     protected void GridViewPegarID_SelectedIndexChanged(object sender, ObjectDataSourceSelectingEventArgs e)

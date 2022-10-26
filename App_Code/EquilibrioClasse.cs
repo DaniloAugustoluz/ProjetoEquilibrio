@@ -6,7 +6,7 @@ using System.Configuration;
 using MySql.Data.MySqlClient;
 using System.Text;
 using System.Data;
-
+using System.EnterpriseServices;
 
 /// <summary>
 /// Summary description for EquilibrioClasse
@@ -143,6 +143,46 @@ public class EquilibrioClasse
         }
     }
 
+
+    public void InserirSolicitado(string P_NOME, string P_CPFCPNJ, string P_EMAIL, string P_TELEFONE, string P_NACIONALIDADE,
+        string P_ESTADOCIVIL, string P_PROFISSAO, string P_CEP, string P_ENDERECO)
+    {
+
+        try
+        {
+            //INSERINDO SOLICITADO
+            MySqlConnection _conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["Mediacao"].ToString());
+            _conn.Open();
+
+            StringBuilder _com = new StringBuilder();
+
+            _com.Append(" INSERT INTO TB_SOLICITADO(NOME, CPFCNPJ, EMAIL, TELEFONE, NACIONALIDADE, ESTADOCIVIL, PROFISSÃO, CEP, ENDERECO) VALUES(");
+            _com.Append("'" + P_NOME.ToString() + "',");
+            _com.Append("'" + P_CPFCPNJ.ToString().Trim() + "',");
+            _com.Append("'" + P_EMAIL.ToString() + "',");
+            _com.Append("'" + P_TELEFONE.ToString() + "',");
+            _com.Append("'" + P_NACIONALIDADE.ToString() + "',");
+            _com.Append("'" + P_ESTADOCIVIL.ToString() + "',");
+            _com.Append("'" + P_PROFISSAO.ToString() + "',");
+            _com.Append("'" + P_CEP.ToString() + "',");
+            _com.Append("'" + P_ENDERECO.ToString() + "');");
+
+            MySqlCommand _comando = new MySqlCommand();
+            _comando.CommandType = CommandType.Text;
+            _comando.CommandText = _com.ToString();
+            _comando.ExecuteNonQuery();
+
+            _conn.Close();
+            _conn.Dispose();
+            _comando.Dispose();
+
+        }
+        catch(Exception ex)
+        {
+            throw ex;
+        }
+    }
+
     public void InserirPessoas(int tipo, string nome, string endereco, string cep, string bairro, string cidade, string uf,string cnpj,string telefone,
             string celular,string email ,byte tipo_contato,string email_contato,string nome_contato,string numero,string complemento)
     {
@@ -261,12 +301,34 @@ public class EquilibrioClasse
 
     }
 
-    public int Id_Demandante(string email) {
+    public int Id_Solicitado(string P_EMAIL)
+    {
+        try
+        {
+            MySqlConnection _conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["Mediacao"].ToString());
+            _conn.Open();
+
+            string s_comando = "SELECT ID_SOLICITADO FROM TB_SOLICITADO WHERE =" + P_EMAIL.ToString() + ";";
+
+            MySqlCommand _comando = new MySqlCommand(s_comando, _conn);
+            _comando.CommandType = CommandType.Text;
+            _comando.CommandText = s_comando.ToString();
+            int _retorno = (Convert.ToInt32(_comando.ExecuteScalar().ToString()));
+
+            return _retorno;
+        }
+        catch (Exception ex) {
+            throw ex;
+        }   
+    
+    }
+
+    public int Id_Solicitante(string email) {
         MySqlConnection _conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["Mediacao"].ToString());
         _conn.Open();
         
         try {
-            string _comando = "CALL PRC_RETORNA_DEMANDANTE('" + email + "');";
+            string _comando = "CALL PRC_RETORNA_SOLICITANTE('" + email + "');";
             
             MySqlCommand _comandoSql = new MySqlCommand();
             _comandoSql.Connection = _conn;
@@ -331,6 +393,34 @@ public class EquilibrioClasse
         finally
         {
             _adapter.Dispose();
+        }
+    }
+
+
+    public DataTable RetornaCvMediador()
+    {
+
+        DataTable _dataTable = new DataTable();
+        MySqlConnection _conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["Mediacao"].ToString());
+        _conn.Open();
+        string s_comando = "SELECT * FROM EXIBECV;";
+
+        MySqlCommand _comando = new MySqlCommand(s_comando, _conn);
+        MySqlDataReader _adapter = _comando.ExecuteReader();
+
+        try
+        {
+            _dataTable.Load(_adapter);
+            return _dataTable;
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            _conn.Close();
+            _conn.Dispose();
         }
     }
 

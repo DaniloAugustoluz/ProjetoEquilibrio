@@ -30,7 +30,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-   <div id="">
+    <div id="">
        <asp:Panel ID="Paneldados" runat="server" Visible="true">
              <table style="width:100%;">
         <tr>

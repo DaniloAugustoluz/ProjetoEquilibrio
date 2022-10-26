@@ -13,6 +13,9 @@
         .auto-style1 {
             height: 21px;
         }
+        .auto-style2 {
+            height: 26px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
@@ -165,11 +168,11 @@
                 </td>
         </tr>
         <tr>
-            <td>
+            <td class="auto-style2">
                 <asp:TextBox ID="TextBoxAcaoMed" runat="server" Visible="False" Width="34px">I</asp:TextBox>
             </td>
-            <td>
-                &nbsp;</td>
+            <td class="auto-style2">
+                </td>
         </tr>
         <tr>
             <td rowspan="2">

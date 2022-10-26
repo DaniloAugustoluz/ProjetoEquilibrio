@@ -20,7 +20,8 @@ public class MasterClasse
 		//
 	}
 
-    public void InserirSolicitacaoDemandante(string P_NOME, string P_CPF, string P_EMAIL, string P_TELEFONE, string P_DESCRICAO) { 
+    public void InserirSolicitante(string P_NOME, string P_CPF, string P_EMAIL, string P_TELEFONE, string P_DESCRICAO, 
+        string P_NACIONALIDADE, string P_ESTADOCIVIL, string P_PROFISSAO, string P_CEP, string P_ENDERECO) { 
     
     try{
 
@@ -28,12 +29,17 @@ public class MasterClasse
             StringBuilder _comando = new StringBuilder();
             _conn.Open();
 
-            _comando.Append(" INSERT INTO TB_DEMANDANTE(NOME, CPF, EMAIL, TELEFONE, DESCRICAO) VALUES(");
+            _comando.Append(" INSERT INTO TB_SOLICITANTE(NOME, CPF, EMAIL, TELEFONE, DESCRICAO, NACIONALIDADE, ESTADOCIVIL, PROFISSAO, CEP, ENDERECO) VALUES(");
             _comando.Append("'" + P_NOME.Trim() + "',");
             _comando.Append("'" + P_CPF.Trim().ToString() + "',");
             _comando.Append("'" + P_EMAIL.Trim().ToString() + "',");
             _comando.Append("'" + P_TELEFONE.Trim().ToString() + "',");
-            _comando.Append("'" + P_DESCRICAO.ToString() + "');");
+            _comando.Append("'" + P_DESCRICAO.ToString() + "',");
+            _comando.Append("'" + P_NACIONALIDADE.ToString() + "',");
+            _comando.Append("'" + P_ESTADOCIVIL.ToString() + "',");
+            _comando.Append("'" + P_PROFISSAO.ToString() + "',");
+            _comando.Append("'" + P_CEP.ToString() + "',");
+            _comando.Append("'" + P_ENDERECO.ToString() + "');");
 
             MySqlCommand _comm = new MySqlCommand();
             _comm.Connection = _conn;
@@ -52,7 +58,66 @@ public class MasterClasse
     }
    }
 
-    public void InserirSolicitacaoDemandado(string  P_MODALIDADE,string P_NOME_DEMANDANDO, string P_CPF_CNPJ, string P_EMAIL, string P_TELEFONE, int P_ID_DEMANDANTE)
+    public void InserirSolicitado(string P_NOME, string P_CPFCNPJ, string P_EMAIL, string P_TELEFONE, string P_NACIONALIDADE, string P_ESTADOCIVIL, string P_PROFISSAO, 
+        string P_CEP, string P_ENDERECO) {
+        try
+        {
+            MySqlConnection _conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["Mediacao"].ToString());
+            _conn.Open();
+
+            StringBuilder _builder = new StringBuilder();
+            _builder.Append(" INSERT INTO TB_SOLICITADO (NOME, CPFCNPJ, EMAIL, TELEFONE, NACIONALIDADE, ESTADOCIVIL, PROFISSAO, CEP, ENDERECO) VALUES(");
+            _builder.Append("'" + P_NOME.ToString() + "',");
+            _builder.Append("'" + P_CPFCNPJ.ToString().Trim() + "',");
+            _builder.Append("'" + P_EMAIL.ToString() + "',");
+            _builder.Append("'" + P_TELEFONE.ToString() + "',");
+            _builder.Append("'" + P_NACIONALIDADE.ToString() + "',");
+            _builder.Append("'" + P_ESTADOCIVIL.ToString() + "',");
+            _builder.Append("'" + P_PROFISSAO.ToString() + "',");
+            _builder.Append("'" + P_CEP.ToString() + "',");
+            _builder.Append("'" + P_ENDERECO.ToString() + "');");
+
+            MySqlCommand _comando = new MySqlCommand();
+            _comando.Connection = _conn;
+            _comando.CommandType = CommandType.Text;
+            _comando.CommandText = _builder.ToString();
+            _comando.ExecuteNonQuery();
+
+            _conn.Close();
+            _conn.Dispose();
+            _comando.Dispose();
+
+        }
+        catch (Exception ex) {
+            throw ex;
+        }
+    
+    
+    }
+
+    public int Id_Solicitado(string P_EMAIL)
+    {
+        try
+        {
+            MySqlConnection _conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["Mediacao"].ToString());
+            _conn.Open();
+
+            string s_comando = "SELECT ID_SOLICITADO FROM TB_SOLICITADO WHERE EMAIL = '" + P_EMAIL.ToString().Trim() + "';";
+
+            MySqlCommand _comando = new MySqlCommand(s_comando, _conn);
+            _comando.CommandType = CommandType.Text;
+            _comando.CommandText = s_comando.ToString();
+            int _retorno = (Convert.ToInt32(_comando.ExecuteScalar().ToString()));
+
+            return _retorno;
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+
+    }
+    public void InserirSolicitacao(int P_ESCOLHERMEDIADOR, string  P_MODALIDADE, int P_ID_SOLICITANTE, int P_ID_SOLICITADO)
     {
         try
         {
@@ -60,13 +125,11 @@ public class MasterClasse
             StringBuilder _comando = new StringBuilder();
             _conn.Open();
 
-            _comando.Append(" INSERT INTO TB_SOLICITACAO (MODALIDADE, NOME_DEMANDADO, CPF_CNPJ, EMAIL, TELEFONE, IDDEMANDANTE) VALUES(");
+            _comando.Append(" INSERT INTO TB_SOLICITACAO (ESCOLHERMEDIADOR, MODALIDADE, IDSOLICITANTE, IDSOLICITADO) VALUES(");
+            _comando.Append("'" + P_ESCOLHERMEDIADOR.ToString().Trim() + "',");
             _comando.Append("'" + P_MODALIDADE.ToString().Trim() + "',");
-            _comando.Append("'" + P_NOME_DEMANDANDO.ToString().Trim() + "',");
-            _comando.Append("'" + P_CPF_CNPJ.ToString().Trim() + "',");
-            _comando.Append("'" + P_EMAIL.ToString().Trim() + "',");
-            _comando.Append("'" + P_TELEFONE.ToString().Trim() + "',");
-            _comando.Append("'" + P_ID_DEMANDANTE.ToString().Trim() + "');");  
+            _comando.Append("'" + P_ID_SOLICITANTE.ToString().Trim() + "',");
+            _comando.Append("'" + P_ID_SOLICITADO.ToString().Trim() + "');");
 
             MySqlCommand _comm = new MySqlCommand();
             _comm.Connection = _conn;
