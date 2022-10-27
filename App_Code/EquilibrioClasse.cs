@@ -726,7 +726,7 @@ public class EquilibrioClasse
         try
         {
             MySqlConnection _conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["Mediacao"].ToString());
-            MySqlCommand _comm = new MySqlCommand ();
+            MySqlCommand _comm = new MySqlCommand();
             _conn.Open();
 
             _comm.Connection = _conn;
@@ -751,7 +751,6 @@ public class EquilibrioClasse
         }
         catch (Exception ex)
         {
-            
             throw ex;
         }
     }
@@ -1004,15 +1003,16 @@ public class EquilibrioClasse
         }
     }
 
-    public DataTable ObterConflitos(int id_cliente,string servico)
+
+    //Adicionar parametros
+    public DataTable ObterSolicitacao(int id_cliente)
     {
         DataTable _dtRetorno = new DataTable();
         string sconexao = ConfigurationManager.ConnectionStrings["Mediacao"].ConnectionString;
 
-        string s_Comando = " CALL PRC_LISTA_CONFLITOS("+id_cliente .ToString () + ",'"+servico.Trim ()+"');";
-
-
+        string s_Comando = " CALL PRC_LISTA_SOLICITACAO();";
         MySqlDataAdapter _adapter = new MySqlDataAdapter(s_Comando, sconexao);
+
         try
         {
             _adapter.Fill(_dtRetorno);
@@ -1020,7 +1020,6 @@ public class EquilibrioClasse
         }
         catch (Exception ex)
         {
-
             throw ex;
         }
         finally
@@ -1028,6 +1027,7 @@ public class EquilibrioClasse
             _adapter.Dispose();
         }
     }
+
     public DataTable ObterConflitos(string demandado,int id_cliente)
     {
         DataTable _dtRetorno = new DataTable();
@@ -1051,6 +1051,7 @@ public class EquilibrioClasse
             _adapter.Dispose();
         }
     }
+
     public DataTable ObterHistorico(string nome,int opcao )
     {
         DataTable _dtRetorno = new DataTable();

@@ -37,7 +37,7 @@ public partial class _Default : System.Web.UI.Page
         
         //Inserindo Solicitacao Demandante
         MasterClasse _class = new MasterClasse();
-        _class.InserirSolicitante(TextBoxName.Text, TextBox1NumberCpf.Text, TextBoxEmail.Text.Trim(), TextBoxTelefone.Text, TextBoxDescricao.Text, TextBoxNacionalidade.Text, DropDownListEstadoCivilSolicitante.SelectedValue, TextBoxProfissao.Text, TextBoxCep.Text, TextBoxEndereco.Text);
+        _class.InserirSolicitante(TextBoxName.Text, TextBox1NumberCpf.Text, TextBoxEmail.Text.Trim(), TextBoxTelefone.Text, TextBoxDescricao.Text, TextBoxCidade.Text, TextBoxNacionalidade.Text, DropDownListEstadoCivilSolicitante.SelectedValue, TextBoxProfissao.Text, TextBoxCep.Text, TextBoxEndereco.Text);
         Session["EmailRetorno"] = TextBoxEmail.Text;
 
         //Retorna o ID do demandante para adicionar na solicitação.
@@ -47,7 +47,7 @@ public partial class _Default : System.Web.UI.Page
 
         //Inserindo Solicitado
         MasterClasse _classeSolicitado = new MasterClasse();
-        _classeSolicitado.InserirSolicitado(TextBoxNomeSolicitado.Text, TextBoxCpfSolicitado.Text, TextBoxEmailSolicitado.Text, TextBoxTelSolicitado.Text, TextBoxNacionalidadeSolicitado.Text, 
+        _classeSolicitado.InserirSolicitado(TextBoxNomeSolicitado.Text, TextBoxCpfSolicitado.Text, TextBoxEmailSolicitado.Text, TextBoxTelSolicitado.Text, TextBoxCidadeSolicitado.Text ,TextBoxNacionalidadeSolicitado.Text, 
         DropDownListEstadoCivilSolicitado.SelectedValue, TextBoxProfissaoSolicitado.Text, TextBoxCepSolicitado.Text, TextBoxEnderecoSolicitado.Text);
 
         //Inserindo solicitacao 

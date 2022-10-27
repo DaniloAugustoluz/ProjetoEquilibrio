@@ -204,7 +204,7 @@
             <td class="style40">
                 </td>
             <td class="style39">
-                &nbsp;</td>
+                </td>
         </tr>
         <tr>
             <td class="auto-style11">
@@ -274,6 +274,24 @@
             </td>
             <td class="style85">
                 <asp:TextBox ID="TextBoxEmail" runat="server" Width="60%" Height="22px"></asp:TextBox>
+            </td>
+            <td class="style78">
+                </td>
+        </tr>
+        <tr>
+            <td class="auto-style13">
+                &nbsp;</td>
+            <td class="style85">
+                &nbsp;</td>
+            <td class="style78">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style13">
+                <asp:Label ID="LabelCidade" runat="server" Text="CIDADE"></asp:Label>
+            </td>
+            <td class="style85">
+                <asp:TextBox ID="TextBoxCidade" runat="server" Height="22px" Width="60%"></asp:TextBox>
             </td>
             <td class="style78">
                 </td>
@@ -545,6 +563,20 @@
                             </td>
                             <td class="auto-style4">
                                 <asp:TextBox ID="TextBoxTelSolicitado" runat="server" Width="80%" Height="22px"></asp:TextBox>
+                            </td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style3">&nbsp;</td>
+                            <td class="auto-style4">&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style3">
+                                <asp:Label ID="LabelCidadeSolicitado" runat="server" Text="CIDADE"></asp:Label>
+                            </td>
+                            <td class="auto-style4">
+                                <asp:TextBox ID="TextBoxCidadeSolicitado" runat="server" Height="22px" Width="60%"></asp:TextBox>
                             </td>
                             <td>&nbsp;</td>
                         </tr>

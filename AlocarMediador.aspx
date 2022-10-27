@@ -155,7 +155,7 @@
                              MaxLength="100" Width="75%"></asp:TextBox>   
                          &nbsp;   
                          <asp:ImageButton ID="ImageButtonPesquisa" runat="server" Height="25px" 
-                             ImageUrl="~/Novo_Layout/busca.png" Width="31px" 
+                             ImageUrl="~/Novo_Layout/busca.png" Width="25px" 
                              onclick="ImageButtonPesquisa_Click" />
                      </td>
                  </tr>
@@ -184,11 +184,7 @@
         <tr>
             <td class="style3">
                 <asp:ObjectDataSource ID="ObjectDataSourceHIST" runat="server" 
-                    SelectMethod="ObterConflitos" TypeName="EquilibrioClasse">
-                    <SelectParameters>
-                        <asp:Parameter DefaultValue="0" Name="id_cliente" Type="Int32" />
-                        <asp:Parameter DefaultValue="&quot;&quot;" Name="servico" Type="String" />
-                    </SelectParameters>
+                    SelectMethod="ObterSolicitacao" TypeName="EquilibrioClasse">
                 </asp:ObjectDataSource>
             </td>
             <td class="style2">
@@ -225,24 +221,24 @@
                           AllowSorting="True" 
                         
                     
-                    DataKeyNames="ID_PROCEDIMENTO,DEMANDANTE,EMAIL_REQUERENTE,UF_REQUERENTE,CIDADE_REQUERENTE,CONFLITO_MINI,DEMANDADO,CNPJ_CPF_REQUERIDO,EMAIL_REQUERIDO" 
+                    DataKeyNames="ID_SOLICITACAO,NOME_SOLICITANTE,EMAIL_SOLICITANTE,CIDADE,DESCRICAO,NOME_SOLICITADO,CPFCNPJ,EMAIL_SOLICITADO" 
                     style="font-family: Arial, Helvetica, sans-serif; font-size: 8pt" 
                          Enabled="False" PageSize="3" 
                          onselectedindexchanged="GridViewContratos_SelectedIndexChanged">
                     <AlternatingRowStyle BackColor="#F7F7F7" />
                     <Columns>
                         <asp:CommandField ShowSelectButton="True" />
-                        <asp:BoundField DataField="ID_PROCEDIMENTO" HeaderText="Num. Proc." />
-                        <asp:BoundField DataField="DEMANDANTE" HeaderText="Solicitante" 
+                        <asp:BoundField DataField="ID_SOLICITACAO" HeaderText="Num. Proc." />
+                        <asp:BoundField DataField="NOME_SOLICITANTE" HeaderText="Solicitante" 
                             SortExpression="DEMANDANTE" />
-                        <asp:BoundField DataField="EMAIL_REQUERENTE" HeaderText="E Mail" 
+                        <asp:BoundField DataField="EMAIL_SOLICITANTE" HeaderText="E Mail" 
                             SortExpression="EMAIL_REQUERENTE" />
-                        <asp:BoundField DataField="CIDADE_REQUERENTE" HeaderText="Cidade" />
-                        <asp:BoundField DataField="CONFLITO_MINI" HeaderText="Resumo" />
-                        <asp:BoundField DataField="DEMANDADO" HeaderText="Solicitado" 
+                        <asp:BoundField DataField="CIDADE" HeaderText="Cidade" />
+                        <asp:BoundField DataField="DESCRICAO" HeaderText="Resumo" />
+                        <asp:BoundField DataField="NOME_SOLICITADO" HeaderText="Solicitado" 
                             SortExpression="DEMANDADO" />
-                        <asp:BoundField DataField="CNPJ_CPF_REQUERIDO" HeaderText="CPF_CNPJ" />
-                        <asp:BoundField DataField="EMAIL_REQUERIDO" HeaderText="E mail" 
+                        <asp:BoundField DataField="CPFCNPJ" HeaderText="CPF_CNPJ" />
+                        <asp:BoundField DataField="EMAIL_SOLICITADO" HeaderText="E mail" 
                             SortExpression="EMAIL_REQUERIDO" />
                     </Columns>
                     <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />

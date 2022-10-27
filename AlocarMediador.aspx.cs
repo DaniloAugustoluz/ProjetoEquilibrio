@@ -43,7 +43,7 @@ public partial class AlocarMediador : System.Web.UI.Page
             else
             {
                 EquilibrioClasse _agenda = new EquilibrioClasse();
-                _agenda.InserirAgendamentoAdm(Convert.ToInt16(GridViewContratos.SelectedDataKey["ID_PROCEDIMENTO"])
+                _agenda.InserirAgendamentoAdm(Convert.ToInt16(GridViewContratos.SelectedDataKey["ID_SOLICITACAO"])
                                             , 0, Convert.ToDateTime(TextBoxAgenda.Text), 1,FreeTextBoxConvocacao .Text
                                             , Convert.ToInt32(DropDownListColaborador.SelectedValue), DateTime.Now, 2
                                             , TextBoxHoraInicio.Text, TextBoxHoraFim.Text,TextBoxEmailConvidado.Text,TextBoxlinkvideo .Text);
@@ -153,7 +153,7 @@ public partial class AlocarMediador : System.Web.UI.Page
             DropDownListModalidade.Enabled = true;
             if (DropDownListOrigem.SelectedIndex == 1)   // se for contrato de cliente, faz pesquisa usando os dados escolhidos
             {
-                ObjectDataSourceHIST.SelectMethod = "ObterConflitos";
+                ObjectDataSourceHIST.SelectMethod = "ObterSolicitacao";
                 ObjectDataSourceHIST.SelectParameters.Clear();
                 ObjectDataSourceHIST.SelectParameters.Add("id_cliente",System.Data.DbType.Int16,DropDownListCliente.SelectedValue.ToString ());
                 ObjectDataSourceHIST.SelectParameters.Add("servico",System.Data.DbType.String,DropDownListServico.SelectedItem.ToString());

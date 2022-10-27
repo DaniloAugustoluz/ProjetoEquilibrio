@@ -21,7 +21,7 @@ public class MasterClasse
 	}
 
     public void InserirSolicitante(string P_NOME, string P_CPF, string P_EMAIL, string P_TELEFONE, string P_DESCRICAO, 
-        string P_NACIONALIDADE, string P_ESTADOCIVIL, string P_PROFISSAO, string P_CEP, string P_ENDERECO) { 
+        string P_CIDADE, string P_NACIONALIDADE, string P_ESTADOCIVIL, string P_PROFISSAO, string P_CEP, string P_ENDERECO) { 
     
     try{
 
@@ -29,12 +29,13 @@ public class MasterClasse
             StringBuilder _comando = new StringBuilder();
             _conn.Open();
 
-            _comando.Append(" INSERT INTO TB_SOLICITANTE(NOME, CPF, EMAIL, TELEFONE, DESCRICAO, NACIONALIDADE, ESTADOCIVIL, PROFISSAO, CEP, ENDERECO) VALUES(");
+            _comando.Append(" INSERT INTO TB_SOLICITANTE(NOME_SOLICITANTE, CPF, EMAIL_SOLICITANTE, TELEFONE, DESCRICAO, CIDADE,NACIONALIDADE, ESTADOCIVIL, PROFISSAO, CEP, ENDERECO) VALUES(");
             _comando.Append("'" + P_NOME.Trim() + "',");
             _comando.Append("'" + P_CPF.Trim().ToString() + "',");
             _comando.Append("'" + P_EMAIL.Trim().ToString() + "',");
             _comando.Append("'" + P_TELEFONE.Trim().ToString() + "',");
             _comando.Append("'" + P_DESCRICAO.ToString() + "',");
+            _comando.Append("'" + P_CIDADE.ToString() + "',");
             _comando.Append("'" + P_NACIONALIDADE.ToString() + "',");
             _comando.Append("'" + P_ESTADOCIVIL.ToString() + "',");
             _comando.Append("'" + P_PROFISSAO.ToString() + "',");
@@ -58,7 +59,7 @@ public class MasterClasse
     }
    }
 
-    public void InserirSolicitado(string P_NOME, string P_CPFCNPJ, string P_EMAIL, string P_TELEFONE, string P_NACIONALIDADE, string P_ESTADOCIVIL, string P_PROFISSAO, 
+    public void InserirSolicitado(string P_NOME, string P_CPFCNPJ, string P_EMAIL, string P_TELEFONE, string P_CIDADE ,string P_NACIONALIDADE, string P_ESTADOCIVIL, string P_PROFISSAO, 
         string P_CEP, string P_ENDERECO) {
         try
         {
@@ -66,11 +67,12 @@ public class MasterClasse
             _conn.Open();
 
             StringBuilder _builder = new StringBuilder();
-            _builder.Append(" INSERT INTO TB_SOLICITADO (NOME, CPFCNPJ, EMAIL, TELEFONE, NACIONALIDADE, ESTADOCIVIL, PROFISSAO, CEP, ENDERECO) VALUES(");
+            _builder.Append(" INSERT INTO TB_SOLICITADO (NOME_SOLICITADO, CPFCNPJ, EMAIL_SOLICITADO, TELEFONE, NACIONALIDADE, ESTADOCIVIL, PROFISSAO, CEP, ENDERECO) VALUES(");
             _builder.Append("'" + P_NOME.ToString() + "',");
             _builder.Append("'" + P_CPFCNPJ.ToString().Trim() + "',");
             _builder.Append("'" + P_EMAIL.ToString() + "',");
             _builder.Append("'" + P_TELEFONE.ToString() + "',");
+            _builder.Append("'" + P_CIDADE.ToString() + "',");
             _builder.Append("'" + P_NACIONALIDADE.ToString() + "',");
             _builder.Append("'" + P_ESTADOCIVIL.ToString() + "',");
             _builder.Append("'" + P_PROFISSAO.ToString() + "',");
