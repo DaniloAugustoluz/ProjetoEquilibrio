@@ -261,6 +261,78 @@
                 </td>
         </tr>
         <tr>
+            <td class="auto-style13">
+                &nbsp;</td>
+            <td class="style85">
+                &nbsp;</td>
+            <td class="style78">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style13">
+                <asp:Label ID="LabelCtpsSolicitante" runat="server" Text="CTPS"></asp:Label>
+            </td>
+            <td class="style85">
+                <asp:TextBox ID="TextBoxCTPSSolicitante" runat="server" Height="22px" Width="60%"></asp:TextBox>
+            </td>
+            <td class="style78">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style13">
+                &nbsp;</td>
+            <td class="style85">
+                &nbsp;</td>
+            <td class="style78">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style13">
+                <asp:Label ID="LabelRgSolicitante" runat="server" Text="RG SOLICITANTE"></asp:Label>
+            </td>
+            <td class="style85">
+                <asp:TextBox ID="TextBoxRgSolicitante" runat="server" Height="22px" Width="50%"></asp:TextBox>
+            </td>
+            <td class="style78">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style13">
+                &nbsp;</td>
+            <td class="style85">
+                &nbsp;</td>
+            <td class="style78">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style13">
+                <asp:Label ID="Label3" runat="server" Text="ORGÃO EXPEDIDOR"></asp:Label>
+            </td>
+            <td class="style85">
+                <asp:TextBox ID="TextBoxOrgaoExpedidorSolicitante" runat="server" Height="22px" Width="30%"></asp:TextBox>
+            </td>
+            <td class="style78">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style13">
+                &nbsp;</td>
+            <td class="style85">
+                &nbsp;</td>
+            <td class="style78">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style13">
+                <asp:Label ID="Label4" runat="server" Text="RG UF"></asp:Label>
+            </td>
+            <td class="style85">
+                <asp:TextBox ID="TextBoxRgUfSolicitante" runat="server" Height="22px" Width="30%"></asp:TextBox>
+            </td>
+            <td class="style78">
+                &nbsp;</td>
+        </tr>
+        <tr>
             <td class="auto-style14">
                 </td>
             <td class="style86">
@@ -274,6 +346,24 @@
             </td>
             <td class="style85">
                 <asp:TextBox ID="TextBoxEmail" runat="server" Width="60%" Height="22px"></asp:TextBox>
+            </td>
+            <td class="style78">
+                </td>
+        </tr>
+        <tr>
+            <td class="auto-style13">
+                &nbsp;</td>
+            <td class="style85">
+                &nbsp;</td>
+            <td class="style78">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style13">
+                <asp:Label ID="LabelUFSolicitante" runat="server" Text="UF"></asp:Label>
+            </td>
+            <td class="style85">
+                <asp:TextBox ID="TextBoxUFSolicitante" runat="server" Height="22px" Width="30%"></asp:TextBox>
             </td>
             <td class="style78">
                 </td>
@@ -316,11 +406,11 @@
         </tr>
         <tr>
             <td class="auto-style13">
-                &nbsp;</td>
+                </td>
             <td class="style85">
-                &nbsp;</td>
+                </td>
             <td class="style78">
-                &nbsp;</td>
+                </td>
         </tr>
         <tr>
             <td class="auto-style13">
@@ -334,6 +424,24 @@
                     <asp:ListItem>DIVORCIADO</asp:ListItem>
                     <asp:ListItem>UNIÃO ESTÁVEL</asp:ListItem>
                 </asp:DropDownList>
+            </td>
+            <td class="style78">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style13">
+                &nbsp;</td>
+            <td class="style85">
+                &nbsp;</td>
+            <td class="style78">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style13">
+                <asp:Label ID="LabelDataNascSolicitante" runat="server" Text="DATA DE NASCIMENTO"></asp:Label>
+            </td>
+            <td class="style85">
+                <asp:TextBox ID="TextBoxDataNascSolicitante" runat="server" Height="22px" Width="30%"></asp:TextBox>
             </td>
             <td class="style78">
                 &nbsp;</td>
@@ -393,21 +501,29 @@
                 &nbsp;</td>
         </tr>
         <tr>
+            <td class="auto-style13">
+                &nbsp;</td>
+            <td class="style85">
+                &nbsp;</td>
+            <td class="style78">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style13">
+                <asp:Label ID="LabelBairroSolicitante" runat="server" Text="BAIRRO"></asp:Label>
+            </td>
+            <td class="style85">
+                <asp:TextBox ID="TextBoxBairroSolicitante" runat="server" Height="22px" Width="50%"></asp:TextBox>
+            </td>
+            <td class="style78">
+                &nbsp;</td>
+        </tr>
+        <tr>
             <td class="auto-style12">
                 </td>
             <td class="style96">
                 </td>
             <td class="style95">
-                </td>
-        </tr>
-        <tr>
-            <td class="auto-style12">
-                <asp:Label ID="LabelDescricao" runat="server" Text="RELATO DO CASO"></asp:Label>
-                </td>
-            <td class="style96">
-                <asp:TextBox ID="TextBoxDescricao" runat="server" TextMode="MultiLine" Width="100%" Height="25px"></asp:TextBox>
-                </td>
-            <td class="style97">
                 </td>
         </tr>
         <tr>
@@ -417,10 +533,10 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Label ID="LabelInfoDemandado" runat="server" Text="Após preencher os dados clique no icone para preencher os dados do Solicitante." ForeColor="Black"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:ImageButton ID="ImageButtonAdcDemandado" runat="server" ImageUrl="~/Novo_Layout/add.png" OnClick="ImageButtonAdcDemandado_Click" ToolTip="Adicionar demandado" Width="40px" />
+                <asp:ImageButton ID="ImageButtonAdcDemandado" runat="server" ImageUrl="~/Novo_Layout/add.png" OnClick="ImageButtonAdcDemandado_Click" ToolTip="Adicionar demandado" Width="35px" />
             </td>
             <td class="style95">
-                <asp:ImageButton ID="ImageButtonEditar" runat="server" ImageUrl="~/Novo_Layout/Editar2.png" OnClick="ImageButtonEditar_Click" Visible="False" Width="40px" />
+                <asp:ImageButton ID="ImageButtonEditar" runat="server" ImageUrl="~/Novo_Layout/Editar2.png" OnClick="ImageButtonEditar_Click" Visible="False" Width="35px" />
             </td>
         </tr>
         <tr>
@@ -494,6 +610,21 @@
                                 &nbsp;&nbsp;&nbsp;
                                 <asp:CheckBox ID="CheckBoxNao" runat="server" Text="NÃO" />
                             </td>
+                            <td class="auto-style10">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style10" colspan="2">&nbsp;</td>
+                            <td class="auto-style10">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style10" colspan="2">
+                                <asp:Label ID="LabelDescricao" runat="server" Text="RELATO DO CASO"></asp:Label>
+                                <asp:TextBox ID="TextBoxDescricao" runat="server" Height="25px" TextMode="MultiLine" Width="100%"></asp:TextBox>
+                            </td>
+                            <td class="auto-style10">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style10" colspan="2">&nbsp;</td>
                             <td class="auto-style10">&nbsp;</td>
                         </tr>
                         <tr>
