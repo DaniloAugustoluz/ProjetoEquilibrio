@@ -22,7 +22,7 @@ public class MasterClasse
 
     public void InserirSolicitante(string P_NOME, string P_CPF, string P_EMAIL, string P_TELEFONE, string P_DESCRICAO, 
         string P_CIDADE, string P_NACIONALIDADE, string P_ESTADOCIVIL, string P_PROFISSAO, string P_CEP, string P_ENDERECO, 
-        string P_UF, DateTime P_DATA_NASCIMENTO_SOLICITANTE, string P_CTPS_SOLICITANTE, string RG_SOLICITANTE, string P_ORGAO_SOLICITANTE,
+        string P_UF, DateTime P_DATA_NASCIMENTO_SOLICITANTE, string P_CTPS_SOLICITANTE, string P_RG_SOLICITANTE, string P_ORGAO_SOLICITANTE,
         string P_RG_UF_SOLICITANTE, string P_BAIRRO_SOLICITANTE) { 
     
     try{
@@ -32,7 +32,7 @@ public class MasterClasse
             _conn.Open();
 
             _comando.Append(" INSERT INTO TB_SOLICITANTE(NOME_SOLICITANTE, CPF, EMAIL_SOLICITANTE, TELEFONE, DESCRICAO, CIDADE,NACIONALIDADE, ESTADOCIVIL, PROFISSAO, CEP, ENDERECO, UF, DATA_NASCIMENTO_SOLICITANTE, CTPS_SOLICITANTE, RG_SOLICITANTE, RG_ORGAO_SOLICITANTE, RG_UF_SOLICITANTE, BAIRRO_SOLICITANTE) VALUES(");
-            _comando.Append("'" + P_NOME.Trim() + "',");
+            _comando.Append("'" + P_NOME.Trim().ToString() + "',");
             _comando.Append("'" + P_CPF.Trim().ToString() + "',");
             _comando.Append("'" + P_EMAIL.Trim().ToString() + "',");
             _comando.Append("'" + P_TELEFONE.Trim().ToString() + "',");
@@ -43,7 +43,13 @@ public class MasterClasse
             _comando.Append("'" + P_PROFISSAO.ToString() + "',");
             _comando.Append("'" + P_CEP.ToString() + "',");
             _comando.Append("'" + P_ENDERECO.ToString() + "',");
-            _comando.Append("'" + );
+            _comando.Append("'" + P_UF.Trim().ToString() + "',");
+            _comando.Append("'" + P_DATA_NASCIMENTO_SOLICITANTE.ToString() + "',");
+            _comando.Append("'" + P_CTPS_SOLICITANTE.ToString() + "',");
+            _comando.Append("'" + P_RG_SOLICITANTE.ToString().Trim() + "',");
+            _comando.Append("'" + P_ORGAO_SOLICITANTE.ToString().Trim() + "',");
+            _comando.Append("'" + P_RG_UF_SOLICITANTE.ToString().Trim() + "',");
+            _comando.Append("'" + P_BAIRRO_SOLICITANTE.ToString().Trim() + "');");
 
             MySqlCommand _comm = new MySqlCommand();
             _comm.Connection = _conn;
